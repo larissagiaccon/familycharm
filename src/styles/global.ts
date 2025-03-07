@@ -41,4 +41,18 @@ export default createGlobalStyle`
     h4 {
         font-size: 2.5rem;
     }
+
+    input {
+        border: none;
+        outline: none;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
 `
