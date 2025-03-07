@@ -2,10 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
     :root {
-        font-size: 62.5%;
-
-        --primary-color: #000;
-        --secondary-color: #C21;
+        --primary_color: #a48;
+        --secondary_color: #e7a187;
+        --text_color: #FFF;
+        --background_color: #000;
     }
 
     * {
@@ -19,8 +19,8 @@ export default createGlobalStyle`
     }
 
     body {
-        background: #FFF;
-        color: #000;
+        background: var(--background_color);
+        color: var(--text_color);
         font: 400 16px Roboto, sans-serif;
     }
 
