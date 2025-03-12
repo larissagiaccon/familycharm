@@ -23,10 +23,48 @@ export const Container = styled.div`
         }
     }
 
+    @keyframes entrySearchMobileAnimation {
+        from {
+            opacity: 0;
+            transform: translateY(-5%);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes exitSearchMobileAnimation {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-5%);
+        }
+    }
+
     .search {
-        align-self: center;
-        width: 100%;
-        max-width: 25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 1rem;
+        gap: 0.5rem;
+
+        animation: entrySearchMobileAnimation 0.3s;
+
+        &.closing {
+            animation: exitSearchMobileAnimation 0.3s;
+        }
+
+        .close-search {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+        }
     }
 
     @media (max-width: 768px) {

@@ -1,9 +1,9 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import Link from 'next/link'
 import debounce from 'lodash.debounce'
 import { SlBasket } from 'react-icons/sl'
-import { FiMenu, FiSearch, FiUser } from 'react-icons/fi'
+import { FiMenu, FiSearch, FiUser, FiX } from 'react-icons/fi'
 
 import HeaderMobile from './HeaderMobile'
 
@@ -12,9 +12,17 @@ import { cart, config, user } from '../../../mocks' // TODO REMOVER MOCK
 import * as S from './styles'
 
 export default function Header() {
+    const [showSearch, setShowSearch] = useState(false)
+    const [closingSearch, setClosingSearch] = useState(false)
+
     const handleScroll = debounce(() => {
         if (typeof window !== 'undefined') {
-            let searchMobile = document.getElementById('search-mobile')
+            if (window.location.pathname === '/') {
+                setClosingSearch(true)
+                setTimeout(() => {
+                    setShowSearch(false)
+                }, 200)
+            }
 
             let headerWeb: HTMLElement
             let headerWebHeight = 0
@@ -25,7 +33,6 @@ export default function Header() {
                 headerWeb = document.getElementById('header-web')
                 headerWebHeight = headerWeb?.offsetHeight
             } else {
-                searchMobile = document.getElementById('search-mobile')
                 headerMobile = document.getElementById('header-mobile')
                 headerMobileHeight = headerMobile?.offsetHeight
             }
@@ -56,7 +63,6 @@ export default function Header() {
                             document.getElementById('height-swap-mobile')
 
                         if (swap) {
-                            // searchMobile.style.display = 'none'
                             swap.style.height = `${headerWebHeight}px`
                             headerMobile?.classList.add('fixed')
                         }
@@ -65,7 +71,6 @@ export default function Header() {
                     }
 
                     headerMobile?.classList.remove('fixed')
-                    // searchMobile.style.display = 'flex'
                 }
 
                 return
@@ -88,20 +93,55 @@ export default function Header() {
 
                 <FiMenu className="menu-sandwich" />
 
-                <img
-                    src={config.aparencia.logo}
-                    alt={config.loja.nome}
-                    className="logo"
-                />
-
-                <div className="search">
-                    <input type="text" placeholder="Pesquisar..." />
-                    <button type="submit">
-                        <FiSearch />
-                    </button>
-                </div>
+                <Link href="/" passHref>
+                    <a href="">
+                        <img
+                            src={config.aparencia.logo}
+                            alt={config.loja.nome}
+                            className="logo"
+                        />
+                    </a>
+                </Link>
 
                 <div>
+                    <div className="search">
+                        {showSearch ? (
+                            <>
+                                <div
+                                    className={`input-search${
+                                        closingSearch ? ' closing' : ''
+                                    }`}
+                                >
+                                    <input
+                                        type="text"
+                                        placeholder="Pesquisar..."
+                                    />
+                                    <button type="submit">
+                                        <FiSearch />
+                                    </button>
+                                </div>
+                                <div
+                                    className="close-search"
+                                    onClick={() => {
+                                        setClosingSearch(true)
+                                        setTimeout(() => {
+                                            setShowSearch(false)
+                                            setClosingSearch(false)
+                                        }, 200)
+                                    }}
+                                >
+                                    <FiX />
+                                </div>
+                            </>
+                        ) : (
+                            <FiSearch
+                                onClick={() => {
+                                    setShowSearch(true)
+                                }}
+                            />
+                        )}
+                    </div>
+
                     <div className="user-info">
                         <FiUser />
                         {user ? (

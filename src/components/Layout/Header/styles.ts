@@ -10,8 +10,7 @@ export const Container = styled.div`
 
     .logo {
         width: 100%;
-        max-width: 10rem;
-        max-height: 5rem;
+        max-height: 4rem;
     }
 
     svg {
@@ -24,12 +23,34 @@ export const Container = styled.div`
         display: none;
     }
 
+    @keyframes entrySearchAnimation {
+        from {
+            opacity: 0;
+            transform: translateX(5%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes exitSearchAnimation {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(5%);
+        }
+    }
+
     .content {
         display: flex;
         align-items: center;
         justify-content: space-between;
         background-color: var(--primary_color);
-        padding: 2rem 4rem;
+        padding: 1rem 4rem;
 
         .menu-sandwich {
             display: none;
@@ -38,6 +59,7 @@ export const Container = styled.div`
         > div:not(.search) {
             display: flex;
             gap: 2rem;
+            cursor: pointer;
 
             > div {
                 display: flex;
@@ -45,13 +67,21 @@ export const Container = styled.div`
                 gap: 0.5rem;
             }
         }
+
+        .input-search {
+            animation: entrySearchAnimation 0.3s;
+
+            &.closing {
+                animation: exitSearchAnimation 0.3s;
+            }
+        }
     }
 
-    .search {
+    .input-search {
         display: flex;
         flex-direction: row;
         height: 2.4rem;
-        width: clamp(340px, 33vw, 700px);
+        width: clamp(340px, 33vw, 400px);
 
         input {
             width: 100%;
@@ -94,6 +124,7 @@ export const Container = styled.div`
             right: -0.3rem;
             font-size: 0.6rem;
             padding: 0.1rem;
+            user-select: none;
         }
     }
 
