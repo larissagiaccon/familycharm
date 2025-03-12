@@ -1,9 +1,12 @@
 import { useEffect } from 'react'
+
+import Head from 'next/head'
 import { AppProps } from 'next/app'
 
 import { config } from '../mocks' // TODO REMOVER MOCK
 
 import GlobalStyle from '../styles/global'
+import Head from 'next/head'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     useEffect(() => {
@@ -36,6 +39,13 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
     return (
         <>
+            <Head>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, maximum-scale=1"
+                />
+            </Head>
+
             <Component {...pageProps} />
             <GlobalStyle />
         </>
