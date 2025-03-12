@@ -25,6 +25,7 @@ export default function Header() {
                 headerWeb = document.getElementById('header-web')
                 headerWebHeight = headerWeb?.offsetHeight
             } else {
+                searchMobile = document.getElementById('search-mobile')
                 headerMobile = document.getElementById('header-mobile')
                 headerMobileHeight = headerMobile?.offsetHeight
             }
@@ -55,7 +56,7 @@ export default function Header() {
                             document.getElementById('height-swap-mobile')
 
                         if (swap) {
-                            searchMobile.style.display = 'none'
+                            // searchMobile.style.display = 'none'
                             swap.style.height = `${headerWebHeight}px`
                             headerMobile?.classList.add('fixed')
                         }
@@ -64,7 +65,7 @@ export default function Header() {
                     }
 
                     headerMobile?.classList.remove('fixed')
-                    searchMobile.style.display = 'flex'
+                    // searchMobile.style.display = 'flex'
                 }
 
                 return

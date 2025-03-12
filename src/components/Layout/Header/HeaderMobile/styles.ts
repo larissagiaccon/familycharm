@@ -4,20 +4,23 @@ export const Container = styled.div`
     display: none;
     flex-direction: column;
     gap: 1rem;
-    padding: 2rem;
     background-color: var(--primary_color);
+    max-height: 10rem;
 
-    .logo {
-        width: 100%;
-        max-width: 10rem;
+    .logo-mobile {
         max-height: 3rem;
     }
 
-    .content {
+    .content-mobile {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0;
+        padding: 0.5rem 1rem;
+
+        .header-mobile-group {
+            display: flex;
+            gap: 1rem;
+        }
     }
 
     .search {

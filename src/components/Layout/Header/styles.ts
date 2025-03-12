@@ -19,7 +19,8 @@ export const Container = styled.div`
         height: 1.5rem;
     }
 
-    #height-swap {
+    #height-swap,
+    #height-swap-mobile {
         display: none;
     }
 
