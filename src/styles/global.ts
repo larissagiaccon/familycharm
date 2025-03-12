@@ -6,6 +6,24 @@ export default createGlobalStyle`
         --secondary_color: #e7a187;
         --text_color: #FFF;
         --background_color: #000;
+        --images_size: 1 / 1;
+        --default_showcase_mobile: repeat(2, 1fr);
+
+        --white: #fff;
+
+        --gray_000: #efefef;
+        --gray_100: #dddddd;
+        --gray_200: #d9d9d9;
+        --gray_300: #bcbcbc;
+        --gray_400: #aaaaaa;
+        --gray_500: #787878;
+        --gray_600: #656565;
+        --gray_700: #555555;
+        --gray_800: #303030;
+
+        --red_000: #ff6961;
+        --red_100: #ff0000;
+        --red_200: #950101;
     }
 
     * {

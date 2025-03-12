@@ -6,7 +6,8 @@ import { AppProps } from 'next/app'
 import { config } from '../mocks' // TODO REMOVER MOCK
 
 import GlobalStyle from '../styles/global'
-import Head from 'next/head'
+import 'swiper/css/effect-fade'
+import 'swiper/swiper-bundle.css'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     useEffect(() => {
@@ -33,6 +34,14 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
             document.documentElement.style.setProperty(
                 '--background_color',
                 corDaApi.backgroundColor
+            )
+            document.documentElement.style.setProperty(
+                '--images_size',
+                corDaApi.imagesSize
+            )
+            document.documentElement.style.setProperty(
+                '--default_showcase_mobile',
+                corDaApi.defaultShowcaseMobile
             )
         })
     }, [])

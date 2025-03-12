@@ -38,9 +38,11 @@ export const config = {
         valorMinimoCompra: null
     },
     layout: {
-        textColor: '#000',
+        textColor: '#303030',
         backgroundColor: '#FFF',
-        primaryColor: '#DC143C	',
-        secondaryColor: '#FFC0CB'
+        primaryColor: '#667c4d	',
+        secondaryColor: '#FFC0CB',
+        imagesSize: '420 / 672',
+        defaultShowcaseMobile: 'repeat(1, 1fr)'
     }
 }
