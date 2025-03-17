@@ -43,21 +43,21 @@ export default createGlobalStyle`
     }
 
     h1 {
-        font-size: clamp(3rem, 6vw, 9rem);
+        font-size: clamp(2rem, 6vw, 9rem);
         font-weight: 700;
     }
 
     h2 {
-        font-size: clamp(2rem, 6vw, 6rem);
+        font-size: clamp(1.5rem, 6vw, 6rem);
         font-weight: 700;
     }
 
     h3 {
-        font-size: clamp(2.5rem, 2vw, 3rem);
+        font-size: clamp(1rem, 2vw, 3rem);
     }
 
     h4 {
-        font-size: 2.5rem;
+        font-size: 1rem;
     }
 
     input {
