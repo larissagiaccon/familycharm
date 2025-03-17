@@ -10,7 +10,7 @@ interface IGridProps {
 export default function Grid({ products }: IGridProps) {
     return (
         <S.Container className="grid">
-            {products.concat(products.concat(products)).map((item, index) => (
+            {products.map((item, index) => (
                 <ProductItem key={index} product={item} />
             ))}
         </S.Container>
