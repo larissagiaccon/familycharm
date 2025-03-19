@@ -107,7 +107,7 @@ export const showcase: IShowcaseProps = {
                 productsShowcase.concat(productsShowcase)
             ),
             ordem: 1,
-            quantidadePreCarregada: 2,
+            quantidadePreCarregada: 4,
             template: 'GRADE',
             tipo: 'PRODUTO',
             titulo: 'SALE'

@@ -4,8 +4,9 @@ import Link from 'next/link'
 import { TbListDetails } from 'react-icons/tb'
 import { TiHeart, TiHeartOutline } from 'react-icons/ti'
 
+import Modal from '../../Modal'
+import Product from '../Product'
 import ProductImage from './ProductImage'
-import ModalSeeMoreDetails from './ModalSeeMoreDetails'
 
 import { IProductCarouselProps } from '../../../mocks/mockedProduct' // TODO REMOVER MOCK
 
@@ -80,10 +81,12 @@ export default function ProductItem({ product }: IProductItemProps) {
             </S.Container>
 
             {showModalSeeMoreDetails && (
-                <ModalSeeMoreDetails
-                    product={product}
+                <Modal
                     onClose={() => setShowModalSeeMoreDetails(false)}
-                />
+                    classNameContainer="modal-see-more-details-modal"
+                >
+                    <Product product={product} />
+                </Modal>
             )}
         </>
     )
