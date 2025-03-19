@@ -1,9 +1,8 @@
-import Layout from '../components/Layout'
-import ShowcaseGrid from '../components/pages/Showcase/ShowcaseGrid'
-import BannersFull from '../components/Templates/Carousel/BannersFull'
+import Layout from 'components/Layout'
+import ShowcaseGrid from 'components/pages/Showcase/ShowcaseGrid'
+import BannersFull from 'components/Templates/Carousel/BannersFull'
 
-import { products } from '../mocks/mockedProduct' // TODO REMOVER MOCK
-import { showcase } from '../mocks/mockShowcase' // TODO REMOVER MOCK
+import { showcase } from 'mocks/mockShowcase' // TODO REMOVER MOCK
 
 import * as S from '../styles/pages/Home'
 

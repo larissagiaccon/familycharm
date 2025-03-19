@@ -4,14 +4,14 @@ import Link from 'next/link'
 import { FaPix, FaCreditCard } from 'react-icons/fa6'
 import { TiHeart, TiHeartOutline } from 'react-icons/ti'
 
-import Button from '../../Button'
+import Button from 'components/common/Button'
 
 import {
+    IProductProps,
     IVariationItemProps,
     IProductCarouselProps,
-    IVariationsSizesAvailableProps,
-    IProductProps
-} from '../../../mocks/mockedProduct' // TODO REMOVER MOCK
+    IVariationsSizesAvailableProps
+} from 'mocks/mockedProduct' // TODO REMOVER MOCK
 
 import * as S from './styles'
 

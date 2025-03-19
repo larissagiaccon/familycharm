@@ -7,7 +7,7 @@ import { FiMenu, FiSearch, FiUser, FiX } from 'react-icons/fi'
 
 import HeaderMobile from './HeaderMobile'
 
-import { cart, config, user } from '../../../mocks' // TODO REMOVER MOCK
+import { cart, config, user } from 'mocks' // TODO REMOVER MOCK
 
 import * as S from './styles'
 
@@ -24,17 +24,17 @@ export default function Header() {
                 }, 200)
             }
 
-            let headerWeb: HTMLElement
+            let headerWeb: HTMLElement | null
             let headerWebHeight = 0
-            let headerMobile: HTMLElement
+            let headerMobile: HTMLElement | null
             let headerMobileHeight = 0
 
             if (window.innerWidth > 768) {
                 headerWeb = document.getElementById('header-web')
-                headerWebHeight = headerWeb?.offsetHeight
+                if (headerWeb) headerWebHeight = headerWeb.offsetHeight
             } else {
                 headerMobile = document.getElementById('header-mobile')
-                headerMobileHeight = headerMobile?.offsetHeight
+                if (headerMobile) headerMobileHeight = headerMobile.offsetHeight
             }
 
             document.getElementsByTagName('body')[0].onscroll = ev => {

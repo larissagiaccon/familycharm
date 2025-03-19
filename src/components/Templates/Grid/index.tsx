@@ -1,5 +1,6 @@
-import { IProductCarouselProps } from '../../../mocks/mockedProduct'
 import ProductItem from '../ProductItem'
+
+import { IProductCarouselProps } from 'mocks/mockedProduct' // TODO REMOVER MOCK
 
 import * as S from './styles'
 

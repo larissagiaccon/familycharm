@@ -5,7 +5,7 @@ import debounce from 'lodash.debounce'
 import { SlBasket } from 'react-icons/sl'
 import { FiMenu, FiSearch, FiX } from 'react-icons/fi'
 
-import { cart, config } from '../../../../mocks' // TODO REMOVER MOCK
+import { cart, config } from 'mocks' // TODO REMOVER MOCK
 
 import * as S from './styles'
 

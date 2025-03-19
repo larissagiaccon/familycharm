@@ -2,10 +2,10 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { FiArrowDown } from 'react-icons/fi'
 
-import Button from '../../../common/Button'
-import Grid from '../../../Templates/Grid'
+import Button from 'components/common/Button'
+import Grid from 'components/Templates/Grid'
 
-import { IComponentsProps, IItemsProps } from '../../../../mocks/mockShowcase' //TODO REMOVER MOCK
+import { IComponentsProps, IItemsProps } from 'mocks/mockShowcase' //TODO REMOVER MOCK
 
 import * as S from './styles'
 

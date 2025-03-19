@@ -2,10 +2,7 @@ import { useState } from 'react'
 
 import Link from 'next/link'
 
-import {
-    IProductCarouselProps,
-    variationsColors
-} from '../../../../mocks/mockedProduct' // TODO REMOVER MOCK
+import { IProductCarouselProps, variationsColors } from 'mocks/mockedProduct' // TODO REMOVER MOCK
 
 import * as S from './styles'
 
