@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { FiArrowDown } from 'react-icons/fi'
 
-import Button from '../../../Button'
+import Button from '../../../common/Button'
 import Grid from '../../../Templates/Grid'
 
 import { IComponentsProps, IItemsProps } from '../../../../mocks/mockShowcase' //TODO REMOVER MOCK
