@@ -24,6 +24,8 @@ export default createGlobalStyle`
         --red_000: #ff6961;
         --red_100: #ff0000;
         --red_200: #950101;
+
+        --pix_color: #77b6a8;
     }
 
     * {
@@ -72,5 +74,10 @@ export default createGlobalStyle`
     a {
         color: inherit;
         text-decoration: none;
+    }
+
+    img {
+        object-fit: contain;
+        aspect-ratio: var(--images_size);
     }
 `
