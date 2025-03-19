@@ -52,7 +52,8 @@ export default function ProductImage({
                                     />
                                 ) : (
                                     <>
-                                        {product.videoUrl !== null ? (
+                                        {product.videoUrl !== null &&
+                                        product.videoUrl !== '' ? (
                                             <video
                                                 key={index}
                                                 autoPlay
