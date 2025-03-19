@@ -1,6 +1,7 @@
 import Layout from 'components/Layout'
 import ShowcaseGrid from 'components/pages/Showcase/ShowcaseGrid'
 import BannersFull from 'components/Templates/Carousel/BannersFull'
+import ProductCarousel from 'components/Templates/Carousel/ProductCarousel'
 
 import { showcase } from 'mocks/mockShowcase' // TODO REMOVER MOCK
 
@@ -32,6 +33,15 @@ export default function Home() {
                                 {component.tipo === 'PRODUTO' &&
                                     component.template === 'GRADE' && (
                                         <ShowcaseGrid component={component} />
+                                    )}
+
+                                {component.tipo === 'PRODUTO' &&
+                                    component.template === 'CARROSSEL' && (
+                                        <ProductCarousel
+                                            products={component.itens}
+                                            delay={3000}
+                                            speed={2000}
+                                        />
                                     )}
                             </div>
                         )

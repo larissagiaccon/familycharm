@@ -119,10 +119,10 @@ export const showcase: IShowcaseProps = {
             campanha: '',
             componenteVitrineId: 7255,
             exibirTitulo: true,
-            itens: productsShowcase,
+            itens: productsShowcase.concat(productsShowcase[1]),
             ordem: 1,
             quantidadePreCarregada: productsShowcase.length,
-            template: 'GRADE',
+            template: 'CARROSSEL',
             tipo: 'PRODUTO',
             titulo: 'LANÇAMENTO'
         }
