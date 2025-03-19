@@ -64,8 +64,17 @@ export default function ProductImage({
                                                     src={product.videoUrl}
                                                     type="video/mp4"
                                                 />
-                                                Seu navegador não suporta a tag
-                                                de vídeo.
+
+                                                {item ? (
+                                                    <img
+                                                        key={index}
+                                                        loading="lazy"
+                                                        src={item.grande}
+                                                        alt={product.nome}
+                                                    />
+                                                ) : (
+                                                    'Seu navegador não suporta a tag                                                de vídeo.'
+                                                )}
                                             </video>
                                         ) : (
                                             <img
