@@ -8,11 +8,62 @@ export const Container = styled.div<IContentProps>`
     display: flex;
     flex-direction: column;
     width: 20rem;
-    height: 100%;
     cursor: pointer;
     position: relative;
     text-align: center;
+    justify-self: center;
     width: 100%;
+
+    @keyframes entryProductOptionsGroupAnimation {
+        from {
+            opacity: 0;
+            transform: translateX(5%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes exitProductOptionsGroupAnimation {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+
+    .product-options-group {
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        opacity: 0;
+
+        .see-details:hover,
+        .favorite:hover {
+            color: var(--primary_color);
+        }
+    }
+
+    &:hover {
+        .product-options-group {
+            opacity: 1;
+            animation: entryProductOptionsGroupAnimation 1s;
+        }
+    }
+
+    &:not(:hover) {
+        .product-options-group {
+            animation: exitProductOptionsGroupAnimation 0.3s;
+        }
+    }
 
     svg {
         width: 1.5rem;
@@ -63,24 +114,7 @@ export const Container = styled.div<IContentProps>`
         }
     }
 
-    .see-details {
-        display: flex;
-        align-items: center;
-        align-self: center;
-        gap: 0.5rem;
-        padding: 0.5rem;
-        border-radius: 0.2rem;
-        margin-top: 0.5rem;
-
-        &:hover {
-            background-color: var(--gray_000);
-            opacity: 0.8;
-        }
-    }
-
     @media (max-width: 768px) {
-        width: 100%;
-
         ${props =>
             props.hoverEffect
                 ? css`

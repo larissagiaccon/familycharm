@@ -10,11 +10,43 @@ export const Container = styled.div`
     align-self: center;
     overflow: hidden;
     height: 100%;
+    border-radius: 0.4rem;
 
-    .favorite-product svg {
+    @keyframes entryProductOptionsGroupAnimation {
+        from {
+            opacity: 0;
+            transform: translateX(5%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes exitProductOptionsGroupAnimation {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+
+    .product-options-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
         position: absolute;
         top: 0.5rem;
         right: 0.5rem;
+        opacity: 0;
+
+        .see-details:hover,
+        .favorite:hover {
+            color: var(--primary_color);
+        }
     }
 
     .variations-group {
@@ -36,6 +68,7 @@ export const Container = styled.div`
         > div {
             display: flex;
             gap: 0.5rem;
+            user-select: none;
         }
 
         p {
@@ -84,6 +117,17 @@ export const Container = styled.div`
             opacity: 1;
             visibility: visible;
         }
+
+        .product-options-group {
+            opacity: 1;
+            animation: entryProductOptionsGroupAnimation 1s;
+        }
+    }
+
+    &:not(:hover) {
+        .product-options-group {
+            animation: exitProductOptionsGroupAnimation 0.3s;
+        }
     }
 
     @media (max-width: 768px) {
@@ -107,7 +151,6 @@ export const Content = styled.a<IContentProps>`
         max-height: 30rem;
         border-radius: 0.4rem;
         object-fit: cover;
-        aspect-ratio: var(--images_size);
     }
 
     > * {

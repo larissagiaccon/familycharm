@@ -46,7 +46,8 @@ export interface IVariationItemProps {
     desconto: number
     disponivel: boolean
     estoque: number
-    imagem: IImageProps
+    imagemPrincipal: IImageProps
+    imagens: Array<IImageProps>
     nome: string
     permalink: string
     precoDe: number
@@ -78,15 +79,15 @@ export interface IProductCarouselProps {
     favorito: boolean
     freteGratis: boolean
     id: number
-    imagemUrl: string
-    imagens: Array<string>
+    imagemPrincipal: IImageProps
+    imagens: Array<IImageProps>
     marca: string
     marcaId: number
+    maximoParcelas: number
     nome: string
     notaMedia: number
     novidade: boolean
     novidadeDataExpiracao: string
-    numeroParcela: number
     permalink: string
     precoDe: number
     precoDeTexto: string
@@ -99,6 +100,8 @@ export interface IProductCarouselProps {
     sku: string
     tamanhos: Array<IVariationsSizesAvailableProps>
     tipo: string
+    totalParcelado: number
+    totalParceladoTexto: string
     valorParcela: number
     valorParcelaTexto: string
     variacoes: Array<IVariationItemProps>
@@ -115,13 +118,16 @@ export interface IProductProps {
     }
     cliqueRetire: boolean
     codigo: string
+    cor: string
     correlatados: Array<ICorrelatoItemProps>
     deepLink: string
     desconto: number
+    descontoProgressivo: boolean
     descricaoGeral: string
     disponivel: boolean
     ean: string
-    ehFavorito: boolean
+    favorito: boolean
+    estoque: number
     estoqueLoja: number
     freteGratis: boolean
     habilitaAvaliacao: boolean
@@ -146,6 +152,7 @@ export interface IProductProps {
         profundidade: number
     }
     navegacao: Array<INavigationProps>
+    maximoParcelas: number
     nome: string
     notaMedia: number
     novidade: boolean
@@ -156,6 +163,8 @@ export interface IProductProps {
     precoDeTexto: string
     precoPor: number
     precoPorTexto: string
+    promocaoId: number
+    promocaoImagemUrl: string
     promocoesProgressivasRegras: IProgressiveItemProps[]
     quantidadeMaximaVenda: number
     quantidadeMinimaVenda: number
@@ -167,9 +176,14 @@ export interface IProductProps {
         seo_PalavrasChaves: string
     }
     sku: string
+    tamanhos: Array<IVariationsSizesAvailableProps>
     tipo: string
+    totalParcelado: number
+    totalParceladoTexto: string
     valorMinimoParcela: number
-    variacoes: IVariationItemProps[]
+    valorParcela: number
+    valorParcelaTexto: string
+    variacoes: Array<IVariationItemProps>
     videoUrl: string
 }
 
@@ -219,12 +233,14 @@ export const variationsColors: IVariationsColorsProps[] = [
 
 export const product: IProductProps = {
     aplicarPromocao: false,
+    descontoProgressivo: true,
     categoria: {
-        categoriaPaiId: null,
+        categoriaPaiId: 123,
         id: 2905,
         nome: 'Cuidados Diários',
         nomeHierarquia: 'Cuidados Diários'
     },
+    cor: 'Verde Lima',
     cliqueRetire: false,
     codigo: '1339',
     correlatados: [
@@ -265,8 +281,9 @@ export const product: IProductProps = {
     descricaoGeral:
         'Para remoção de cutículas, afiado, aço inox e esterilizável, cabos com proteção antibacteriana.',
     disponivel: true,
-    ean: null,
-    ehFavorito: false,
+    ean: '456',
+    favorito: false,
+    estoque: 976,
     estoqueLoja: 0,
     freteGratis: true,
     habilitaAvaliacao: true,
@@ -295,7 +312,8 @@ export const product: IProductProps = {
         nome: 'MERHEJE',
         permalink: 'merheje'
     },
-    medidas: null,
+    maximoParcelas: 3,
+    medidas: { altura: 20, largura: 20, profundidade: 20, peso: 30 },
     navegacao: [
         {
             id: 2905,
@@ -318,6 +336,8 @@ export const product: IProductProps = {
     precoDeTexto: 'R$ 11,28',
     precoPor: 9.58,
     precoPorTexto: 'R$ 9,58',
+    promocaoId: null,
+    promocaoImagemUrl: null,
     promocoesProgressivasRegras: [],
     quantidadeMaximaVenda: 2,
     quantidadeMinimaVenda: 1,
@@ -354,13 +374,19 @@ export const product: IProductProps = {
         produtoId: 50482,
         total: 0
     },
-    sku: null,
+    sku: '123',
     seo: {
-        seo_Descricao: null,
-        seo_PalavrasChaves: null,
+        seo_Descricao: '',
+        seo_PalavrasChaves: '',
         seo_Titulo: 'ALICATE DE CUTÍCULAS MERHEJE ROSA'
     },
+    tamanhos: [
+        { disponivel: true, tamanho: 'P' },
+        { disponivel: false, tamanho: 'M' }
+    ],
     tipo: 'Utensilio',
+    totalParcelado: 20,
+    totalParceladoTexto: 'R$ 120,00',
     valorMinimoParcela: 50,
     variacoes: [
         {
@@ -368,7 +394,7 @@ export const product: IProductProps = {
             desconto: 15,
             disponivel: true,
             estoque: 9111,
-            imagem: {
+            imagemPrincipal: {
                 grande: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
                 media: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
                 mini: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
@@ -376,6 +402,16 @@ export const product: IProductProps = {
                     'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
                 principal: true
             },
+            imagens: [
+                {
+                    grande: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+                    media: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+                    mini: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+                    pequena:
+                        'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+                    principal: true
+                }
+            ],
             nome: '',
             permalink: 'vestido/bege123',
             precoDe: 11.28,
@@ -389,13 +425,13 @@ export const product: IProductProps = {
             ]
         }
     ],
-    videoUrl: null
+    videoUrl: ''
 }
 
 export const products: IProductCarouselProps[] = [
     {
         aplicarPromocao: false,
-        categoria: 'Ultrafarma Sports Nutrition > Acessórios',
+        categoria: 'Thaís Rodrigues > Saias',
         categoriaId: 0,
         cliqueRetire: true,
         codigo: '795556',
@@ -408,21 +444,32 @@ export const products: IProductCarouselProps[] = [
         favorito: true,
         freteGratis: false,
         id: 56658,
-        imagemUrl:
-            'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
+        imagemPrincipal: {
+            grande: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
+            media: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
+            mini: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
+            pequena:
+                'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
+            principal: true
+        },
         imagens: [
-            'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_2.jpg?v=1741210473&width=823',
-            'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_3.jpg?v=1741210494&width=823',
-            'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_4.jpg?v=1741210506&width=823'
+            {
+                grande: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_2.jpg?v=1741210473&width=823',
+                media: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_2.jpg?v=1741210473&width=823',
+                mini: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_2.jpg?v=1741210473&width=823',
+                pequena:
+                    'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_2.jpg?v=1741210473&width=823',
+                principal: true
+            }
         ],
-        marca: 'RISQUÉ',
+        marca: 'THAÍS RODRIGUES',
         marcaId: 0,
-        nome: 'ESMALTE RISQUÉ BASE FORTALECEDORA 8ML',
+        maximoParcelas: 1,
+        nome: 'Saia Katrina',
         notaMedia: 0.0,
         novidade: false,
         novidadeDataExpiracao: '0001-01-01T00:00:00',
-        numeroParcela: 1,
-        permalink: 'esmalte-risque-base-fortalecedora-8ml',
+        permalink: 'thais-rodrigues-saia-katrina-verde-lima',
         precoDe: 4.17,
         precoDeTexto: 'R$ 4,17',
         precoPor: 3.75,
@@ -437,15 +484,17 @@ export const products: IProductCarouselProps[] = [
             { disponivel: false, tamanho: 'M' }
         ],
         tipo: 'COMUM',
+        totalParcelado: 20,
+        totalParceladoTexto: 'R$ 120,00',
         valorParcela: 3.75,
         valorParcelaTexto: 'R$ 3,75',
         variacoes: [
             {
                 cor: 'Azul',
-                desconto: 15,
+                desconto: 0,
                 disponivel: true,
                 estoque: 9111,
-                imagem: {
+                imagemPrincipal: {
                     grande: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
                     media: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
                     mini: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
@@ -453,10 +502,20 @@ export const products: IProductCarouselProps[] = [
                         'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
                     principal: true
                 },
-                nome: '',
-                permalink: 'vestido/bege123',
-                precoDe: 11.28,
-                precoDeTexto: 'R$ 11,28',
+                imagens: [
+                    {
+                        grande: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+                        media: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+                        mini: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+                        pequena:
+                            'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+                        principal: true
+                    }
+                ],
+                nome: 'Saia Katrina',
+                permalink: 'thais-rodrigues-saia-katrina-azul',
+                precoDe: null,
+                precoDeTexto: null,
                 precoPor: 9.58,
                 precoPorTexto: 'R$ 11,28',
                 sku: '1339',
@@ -470,7 +529,7 @@ export const products: IProductCarouselProps[] = [
     },
     {
         aplicarPromocao: false,
-        categoria: 'Cuidados Diários',
+        categoria: 'Tatá Martello > Vestidos',
         categoriaId: 0,
         cliqueRetire: true,
         codigo: '1339',
@@ -483,20 +542,32 @@ export const products: IProductCarouselProps[] = [
         favorito: false,
         freteGratis: true,
         id: 50482,
-        imagemUrl:
-            'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21912/5851-verde-lima-1.jpg?ims=630x1008',
+        imagemPrincipal: {
+            grande: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21912/5851-verde-lima-1.jpg?ims=630x1008',
+            media: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21912/5851-verde-lima-1.jpg?ims=630x1008',
+            mini: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21912/5851-verde-lima-1.jpg?ims=630x1008',
+            pequena:
+                'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21912/5851-verde-lima-1.jpg?ims=630x1008',
+            principal: true
+        },
         imagens: [
-            'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21910/5851-verde-lima-3.jpg?ims=630x1008',
-            'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21911/5851-verde-lima-2.jpg?ims=630x1008'
+            {
+                grande: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21910/5851-verde-lima-3.jpg?ims=630x1008',
+                media: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21910/5851-verde-lima-3.jpg?ims=630x1008',
+                mini: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21910/5851-verde-lima-3.jpg?ims=630x1008',
+                pequena:
+                    'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21910/5851-verde-lima-3.jpg?ims=630x1008',
+                principal: true
+            }
         ],
-        marca: 'MERHEJE',
+        marca: 'TATÁ MARTELLO',
         marcaId: 0,
-        nome: 'ALICATE DE CUTÍCULAS MERHEJE ROSA',
+        maximoParcelas: 1,
+        nome: 'Vestido Malha',
         notaMedia: 0.0,
         novidade: true,
         novidadeDataExpiracao: '2025-03-29T00:00:00',
-        numeroParcela: 1,
-        permalink: 'alicate-de-cuticulas-merheje-rosa',
+        permalink: 'tata-martelo-vestido-rosa',
         precoDe: 11.28,
         precoDeTexto: 'R$ 11,28',
         precoPor: 9.58,
@@ -512,6 +583,8 @@ export const products: IProductCarouselProps[] = [
             { disponivel: true, tamanho: 'G' }
         ],
         tipo: 'COMUM',
+        totalParcelado: 20,
+        totalParceladoTexto: 'R$ 120,00',
         valorParcela: 9.58,
         valorParcelaTexto: 'R$ 9,58',
         variacoes: [
@@ -520,7 +593,7 @@ export const products: IProductCarouselProps[] = [
                 desconto: 15,
                 disponivel: true,
                 estoque: 9111,
-                imagem: {
+                imagemPrincipal: {
                     grande: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/22465/5709-rosa-7.jpg?ims=630x1008',
                     media: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/22465/5709-rosa-7.jpg?ims=630x1008',
                     mini: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/22465/5709-rosa-7.jpg?ims=630x1008',
@@ -528,8 +601,18 @@ export const products: IProductCarouselProps[] = [
                         'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/22465/5709-rosa-7.jpg?ims=630x1008',
                     principal: true
                 },
-                nome: '',
-                permalink: 'vestido/bege123',
+                imagens: [
+                    {
+                        grande: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/22465/5709-rosa-7.jpg?ims=630x1008',
+                        media: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/22465/5709-rosa-7.jpg?ims=630x1008',
+                        mini: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/22465/5709-rosa-7.jpg?ims=630x1008',
+                        pequena:
+                            'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/22465/5709-rosa-7.jpg?ims=630x1008',
+                        principal: true
+                    }
+                ],
+                nome: 'Vestido Malha',
+                permalink: 'tata-martelo-vestido-vermelho',
                 precoDe: 11.28,
                 precoDeTexto: 'R$ 11,28',
                 precoPor: 9.58,
@@ -550,7 +633,7 @@ export const products: IProductCarouselProps[] = [
     },
     {
         aplicarPromocao: false,
-        categoria: 'Cuidados Diários',
+        categoria: 'Tatá Martello > Vestidos',
         categoriaId: 0,
         cliqueRetire: true,
         codigo: '1339',
@@ -563,19 +646,32 @@ export const products: IProductCarouselProps[] = [
         favorito: false,
         freteGratis: true,
         id: 50482,
-        imagemUrl:
-            'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+        imagemPrincipal: {
+            grande: 'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+            media: 'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+            mini: 'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+            pequena:
+                'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+            principal: true
+        },
         imagens: [
-            'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276'
+            {
+                grande: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                media: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                mini: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                pequena:
+                    'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                principal: true
+            }
         ],
-        marca: 'MERHEJE',
+        marca: 'TATÁ MARTELO',
         marcaId: 0,
-        nome: 'ALICATE DE CUTÍCULAS MERHEJE ROSA',
+        maximoParcelas: 1,
+        nome: 'Vestido Verão',
         notaMedia: 0.0,
         novidade: true,
         novidadeDataExpiracao: '2025-03-29T00:00:00',
-        numeroParcela: 1,
-        permalink: 'alicate-de-cuticulas-merheje-rosa',
+        permalink: 'tata-martello-vestido-verao-amarelo',
         precoDe: null,
         precoDeTexto: null,
         precoPor: 9.58,
@@ -590,6 +686,8 @@ export const products: IProductCarouselProps[] = [
             { disponivel: false, tamanho: 'GG' }
         ],
         tipo: 'COMUM',
+        totalParcelado: 20,
+        totalParceladoTexto: 'R$ 120,00',
         valorParcela: 9.58,
         valorParcelaTexto: 'R$ 9,58',
         variacoes: [
@@ -598,7 +696,7 @@ export const products: IProductCarouselProps[] = [
                 desconto: 15,
                 disponivel: true,
                 estoque: 9111,
-                imagem: {
+                imagemPrincipal: {
                     grande: 'https://tatamartello.cdn.magazord.com.br/img/2024/12/produto/20953/5738-azul.jpg?ims=630x1008',
                     media: 'https://tatamartello.cdn.magazord.com.br/img/2024/12/produto/20953/5738-azul.jpg?ims=630x1008',
                     mini: 'https://tatamartello.cdn.magazord.com.br/img/2024/12/produto/20953/5738-azul.jpg?ims=630x1008',
@@ -606,8 +704,18 @@ export const products: IProductCarouselProps[] = [
                         'https://tatamartello.cdn.magazord.com.br/img/2024/12/produto/20953/5738-azul.jpg?ims=630x1008',
                     principal: true
                 },
-                nome: '',
-                permalink: 'vestido/bege123',
+                imagens: [
+                    {
+                        grande: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                        media: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                        mini: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                        pequena:
+                            'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                        principal: true
+                    }
+                ],
+                nome: 'Vestido Verão',
+                permalink: 'tata-martello-vestido-verao-azul-bebe',
                 precoDe: 11.28,
                 precoDeTexto: 'R$ 11,28',
                 precoPor: 9.58,
@@ -624,7 +732,7 @@ export const products: IProductCarouselProps[] = [
     },
     {
         aplicarPromocao: false,
-        categoria: 'Cuidados Diários',
+        categoria: "D'Vanelle > Vestidos",
         categoriaId: 0,
         cliqueRetire: true,
         codigo: '1339',
@@ -637,19 +745,32 @@ export const products: IProductCarouselProps[] = [
         favorito: false,
         freteGratis: true,
         id: 50482,
-        imagemUrl:
-            'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-2.jpg',
+        imagemPrincipal: {
+            grande: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-2.jpg',
+            media: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-2.jpg',
+            mini: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-2.jpg',
+            pequena:
+                'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-2.jpg',
+            principal: true
+        },
         imagens: [
-            'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-3-d-vanelle.jpg'
+            {
+                grande: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-3-d-vanelle.jpg',
+                media: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-3-d-vanelle.jpg',
+                mini: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-3-d-vanelle.jpg',
+                pequena:
+                    'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-3-d-vanelle.jpg',
+                principal: true
+            }
         ],
-        marca: 'MERHEJE',
+        marca: "D'VANELLE",
         marcaId: 0,
-        nome: 'ALICATE DE CUTÍCULAS MERHEJE ROSA',
+        maximoParcelas: 1,
+        nome: 'Vestido Social Florido',
         notaMedia: 0.0,
         novidade: true,
         novidadeDataExpiracao: '2025-03-29T00:00:00',
-        numeroParcela: 1,
-        permalink: 'alicate-de-cuticulas-merheje-rosa',
+        permalink: 'dvanelle-vestido-social-florido-azul',
         precoDe: null,
         precoDeTexto: null,
         precoPor: 9.58,
@@ -668,6 +789,8 @@ export const products: IProductCarouselProps[] = [
             { disponivel: true, tamanho: 'GG' }
         ],
         tipo: 'COMUM',
+        totalParcelado: 20,
+        totalParceladoTexto: 'R$ 120,00',
         valorParcela: 9.58,
         valorParcelaTexto: 'R$ 9,58',
         variacoes: [
@@ -676,7 +799,7 @@ export const products: IProductCarouselProps[] = [
                 desconto: 15,
                 disponivel: true,
                 estoque: 9111,
-                imagem: {
+                imagemPrincipal: {
                     grande: 'https://cdn.entrypoint.directory/assets/62469/produtos/625/vestido-laura-marrom-1.jpg',
                     media: 'https://cdn.entrypoint.directory/assets/62469/produtos/625/vestido-laura-marrom-1.jpg',
                     mini: 'https://cdn.entrypoint.directory/assets/62469/produtos/625/vestido-laura-marrom-1.jpg',
@@ -684,8 +807,18 @@ export const products: IProductCarouselProps[] = [
                         'https://cdn.entrypoint.directory/assets/62469/produtos/625/vestido-laura-marrom-1.jpg',
                     principal: true
                 },
-                nome: '',
-                permalink: 'vestido/bege123',
+                imagens: [
+                    {
+                        grande: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                        media: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                        mini: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                        pequena:
+                            'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                        principal: true
+                    }
+                ],
+                nome: 'Vestido Social Florido Marrom',
+                permalink: 'dvanelle-vestido-social-florido-marrom',
                 precoDe: 11.28,
                 precoDeTexto: 'R$ 11,28',
                 precoPor: 9.58,

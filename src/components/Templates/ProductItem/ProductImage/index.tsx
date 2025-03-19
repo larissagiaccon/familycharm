@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import Link from 'next/link'
-import { TiHeart, TiHeartOutline } from 'react-icons/ti'
 
 import {
     IProductCarouselProps,
@@ -12,13 +11,17 @@ import * as S from './styles'
 
 interface IProductImageProps {
     product: IProductCarouselProps
+    setShowModalSeeMoreDetails(state: boolean): void
 }
 
-export default function ProductImage({ product }: IProductImageProps) {
+export default function ProductImage({
+    product,
+    setShowModalSeeMoreDetails
+}: IProductImageProps) {
     const [hoverEffect, setHoverEffect] = useState(false)
     const [featuredProduct, setFeaturedProduct] = useState({
         sku: product.sku,
-        imagem: product.imagemUrl,
+        imagem: product.imagemPrincipal.grande,
         tamanhos: product.tamanhos
     })
 
@@ -38,7 +41,7 @@ export default function ProductImage({ product }: IProductImageProps) {
                     hoverEffect={hoverEffect}
                     title={product.nome}
                 >
-                    {[product.imagemUrl]
+                    {[product.imagemPrincipal]
                         .concat(product.imagens)
                         .slice(0, 2)
                         .map((item, index) => (
@@ -70,7 +73,7 @@ export default function ProductImage({ product }: IProductImageProps) {
                                             <img
                                                 key={index}
                                                 loading="lazy"
-                                                src={item}
+                                                src={item.grande}
                                                 alt={product.nome}
                                             />
                                         )}
@@ -80,14 +83,6 @@ export default function ProductImage({ product }: IProductImageProps) {
                         ))}
                 </S.Content>
             </Link>
-
-            <div className="favorite-product">
-                {product.favorito ? (
-                    <TiHeart title="Remover dos favoritos" />
-                ) : (
-                    <TiHeartOutline title="Adicionar aos favoritos" />
-                )}
-            </div>
 
             <div className="variations-group">
                 <div className="variations-color">
@@ -111,7 +106,7 @@ export default function ProductImage({ product }: IProductImageProps) {
                         onClick={() => {
                             setFeaturedProduct({
                                 sku: product.sku,
-                                imagem: product.imagemUrl,
+                                imagem: product.imagemPrincipal.grande,
                                 tamanhos: product.tamanhos
                             })
                         }}
@@ -138,7 +133,7 @@ export default function ProductImage({ product }: IProductImageProps) {
                             onClick={() => {
                                 setFeaturedProduct({
                                     sku: item.sku,
-                                    imagem: item.imagem.grande,
+                                    imagem: item.imagemPrincipal.grande,
                                     tamanhos: item.tamanhos
                                 })
                             }}
