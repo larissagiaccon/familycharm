@@ -30,18 +30,15 @@ const ProductCarousel: React.FC<ICarouselProps> = ({
     const breakpoints = {
         820: {
             slidesPerView: products.length > 3 ? 3 : products.length,
-            loop: products.length > 3,
-            navigation: products.length > 3
+            loop: products.length > 3
         },
         1024: {
             slidesPerView: products.length > 4 ? 4 : products.length,
-            loop: products.length > 4,
-            navigation: products.length > 4
+            loop: products.length > 4
         },
         1600: {
             slidesPerView: products.length > 5 ? 5 : products.length,
-            loop: products.length > 5,
-            navigation: products.length > 5
+            loop: products.length > 5
         }
     }
 
@@ -57,11 +54,11 @@ const ProductCarousel: React.FC<ICarouselProps> = ({
 
     useEffect(() => {
         resizeWindow()
-    }, [])
 
-    if (typeof window !== 'undefined') {
-        window.addEventListener('resize', resizeWindow)
-    }
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', resizeWindow)
+        }
+    }, [])
 
     return (
         <S.Container
@@ -81,6 +78,7 @@ const ProductCarousel: React.FC<ICarouselProps> = ({
                         pauseOnMouseEnter: true,
                         reverseDirection: true
                     }}
+                    pagination={{ clickable: products.length > 2 }}
                     loop={products.length > 2}
                     navigation={products.length > 2}
                     speed={speed}
