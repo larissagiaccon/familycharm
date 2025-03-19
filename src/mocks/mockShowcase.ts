@@ -48,7 +48,8 @@ const productsShowcase: IItemsProps[] = products.map(item => ({
         'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
     ordem: 0,
     redirecionarUrl: '',
-    titulo: ''
+    titulo: '',
+    imagemUrl: item.imagemPrincipal.grande
 }))
 
 export const showcase: IShowcaseProps = {
@@ -60,12 +61,12 @@ export const showcase: IShowcaseProps = {
                 'https://tatamartello.cdn.magazord.com.br/img/2025/03/banner/22904/dsk.jpg',
             imagemMobileUrl:
                 'https://tatamartello.cdn.magazord.com.br/img/2025/03/banner/22904/dsk.jpg',
-            redirecionarUrl: null,
+            redirecionarUrl: '',
             abrirNovaJanela: false,
-            campanha: null,
+            campanha: '',
             duracao: 1000,
             ordem: 0,
-            backgroundColor: null
+            backgroundColor: ''
         },
         {
             id: 649,
@@ -74,12 +75,12 @@ export const showcase: IShowcaseProps = {
                 'https://www.thaisrodrigues.com.br/cdn/shop/files/BANNER_DESKTOP_dc9f0c58-e2b4-4b5d-9100-7a685137cfe1.jpg?v=1741898467&width=1800',
             imagemMobileUrl:
                 'https://www.thaisrodrigues.com.br/cdn/shop/files/BANNER_DESKTOP_dc9f0c58-e2b4-4b5d-9100-7a685137cfe1.jpg?v=1741898467&width=1800',
-            redirecionarUrl: null,
+            redirecionarUrl: '',
             abrirNovaJanela: false,
-            campanha: null,
+            campanha: '',
             duracao: 1000,
             ordem: 1,
-            backgroundColor: null
+            backgroundColor: ''
         },
         {
             id: 650,
@@ -88,18 +89,18 @@ export const showcase: IShowcaseProps = {
                 'https://tatamartello.cdn.magazord.com.br/img/2025/02/banner/22231/desktop-2.png',
             imagemMobileUrl:
                 'https://tatamartello.cdn.magazord.com.br/img/2025/02/banner/22231/desktop-2.png',
-            redirecionarUrl: null,
+            redirecionarUrl: '',
             abrirNovaJanela: false,
-            campanha: null,
+            campanha: '',
             duracao: 1000,
             ordem: 2,
-            backgroundColor: null
+            backgroundColor: ''
         }
     ],
     componentes: [
         {
-            bannerImagemUrl: null,
-            bannerLinkUrl: null,
+            bannerImagemUrl: '',
+            bannerLinkUrl: '',
             campanha: '',
             componenteVitrineId: 7255,
             exibirTitulo: true,
@@ -113,8 +114,8 @@ export const showcase: IShowcaseProps = {
             titulo: 'SALE'
         },
         {
-            bannerImagemUrl: null,
-            bannerLinkUrl: null,
+            bannerImagemUrl: '',
+            bannerLinkUrl: '',
             campanha: '',
             componenteVitrineId: 7255,
             exibirTitulo: true,

@@ -237,8 +237,8 @@ export const product: IProductProps = {
     categoria: {
         categoriaPaiId: 123,
         id: 2905,
-        nome: 'Cuidados Diários',
-        nomeHierarquia: 'Cuidados Diários'
+        nome: 'Thaís Rodrigues',
+        nomeHierarquia: 'Thaís Rodrigues'
     },
     cor: 'Verde Lima',
     cliqueRetire: false,
@@ -246,14 +246,14 @@ export const product: IProductProps = {
     correlatados: [
         {
             codigo: '38547',
-            deepLink: 'ultrafarma://produto?sku=38547',
+            deepLink: 'familycharm://produto?sku=38547',
             desconto: 0,
             freteGratis: true,
             id: 53240,
             imagemUrl:
-                'https://cdn.ultrafarma.com.br/static/produtos/38547/small-38547.jpg',
-            nome: 'ALICATE DE CUTÍCULAS MERHEJE PROFESSIONAL CLUB',
-            permalink: 'alicate-de-cuticulas-merheje-profissional',
+                'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+            nome: 'Saia Luiza',
+            permalink: 'thais-rodrigues-saia-luiza-azul',
             precoDe: 20.82,
             precoDeTexto: 'R$ 20,82',
             precoPor: 20.36,
@@ -261,22 +261,22 @@ export const product: IProductProps = {
         },
         {
             codigo: '806523',
-            deepLink: 'ultrafarma://produto?sku=806523',
+            deepLink: 'familycharm://produto?sku=806523',
             desconto: 0,
             freteGratis: true,
             id: 55038,
             imagemUrl:
-                'https://cdn.ultrafarma.com.br/static/produtos/806523/small-806523.jpg',
-            nome: 'ALICATE DE CUTÍCULAS + ESPÁTULA DE CUTÍCULAS + CORTADOR DE UNHAS + PINÇA MERHEJE - VERDE',
-            permalink:
-                'alicate-de-cuticulas-espatula-de-cuticulas-cortador-de-unhas-pinca-merheje-verde',
+                'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+            nome: 'Saia Luana',
+            permalink: 'thais-rodrigues-saia-luana-azul',
             precoDe: 16.38,
             precoDeTexto: 'R$ 16,38',
             precoPor: 13.92,
             precoPorTexto: 'R$ 13,92'
         }
     ],
-    deepLink: 'ultrafarma://produto?sku=alicate-de-cuticulas-merheje-rosa',
+    deepLink:
+        'familycharm://produto?sku=thais-rodrigues-saia-katrina-verde-lima',
     desconto: 15,
     descricaoGeral:
         'Para remoção de cutículas, afiado, aço inox e esterilizável, cabos com proteção antibacteriana.',
@@ -288,56 +288,56 @@ export const product: IProductProps = {
     freteGratis: true,
     habilitaAvaliacao: true,
     id: 50482,
+    imagemPrincipal: {
+        grande: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
+        media: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
+        mini: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
+        pequena:
+            'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
+        principal: true
+    },
     imagens: [
         {
-            grande: 'https://cdn.ultrafarma.com.br/static/produtos/1339/large-1339.jpg',
-            media: 'https://cdn.ultrafarma.com.br/static/produtos/1339/medium-1339.jpg',
-            mini: 'https://cdn.ultrafarma.com.br/static/produtos/1339/thumb-1339.jpg',
+            grande: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_2.jpg?v=1741210473&width=823',
+            media: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_2.jpg?v=1741210473&width=823',
+            mini: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_2.jpg?v=1741210473&width=823',
             pequena:
-                'https://cdn.ultrafarma.com.br/static/produtos/1339/small-1339.jpg',
+                'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_2.jpg?v=1741210473&width=823',
             principal: true
         }
     ],
-    imagemPrincipal: {
-        grande: 'https://cdn.ultrafarma.com.br/static/produtos/1339/large-1339.jpg',
-        media: 'https://cdn.ultrafarma.com.br/static/produtos/1339/medium-1339.jpg',
-        mini: 'https://cdn.ultrafarma.com.br/static/produtos/1339/thumb-1339.jpg',
-        pequena:
-            'https://cdn.ultrafarma.com.br/static/produtos/1339/small-1339.jpg',
-        principal: true
-    },
     lojasDisponiveis: [],
     marca: {
         id: 3076,
-        nome: 'MERHEJE',
-        permalink: 'merheje'
+        nome: 'THAÍS RODRIGUES',
+        permalink: 'thais-rodrigues'
     },
     maximoParcelas: 3,
     medidas: { altura: 20, largura: 20, profundidade: 20, peso: 30 },
     navegacao: [
         {
             id: 2905,
-            nome: 'Cuidados Diários',
-            permalink: '/categoria/cuidados-diarios'
+            nome: 'Thaís Rodrigues',
+            permalink: '/categoria/thais-rodrigues'
         },
         {
             id: 50482,
-            nome: 'ALICATE DE CUTÍCULAS MERHEJE ROSA',
-            permalink: '/alicate-de-cuticulas-merheje-rosa'
+            nome: 'Saia Katrina',
+            permalink: '/thais-rodrigues-saia-katrina-verde-lima'
         }
     ],
-    nome: 'ALICATE DE CUTÍCULAS MERHEJE ROSA',
+    nome: 'Saia Katrina',
     notaMedia: 0.0,
     novidade: true,
     novidadeDataExpiracao: '2025-03-29T00:00:00',
     parcelamentoMaximo: 3,
-    permalink: 'alicate-de-cuticulas-merheje-rosa',
+    permalink: 'thais-rodrigues-saia-katrina-verde-lima',
     precoDe: 11.28,
     precoDeTexto: 'R$ 11,28',
     precoPor: 9.58,
     precoPorTexto: 'R$ 9,58',
-    promocaoId: null,
-    promocaoImagemUrl: null,
+    promocaoId: 0,
+    promocaoImagemUrl: '',
     promocoesProgressivasRegras: [],
     quantidadeMaximaVenda: 2,
     quantidadeMinimaVenda: 1,
@@ -378,7 +378,7 @@ export const product: IProductProps = {
     seo: {
         seo_Descricao: '',
         seo_PalavrasChaves: '',
-        seo_Titulo: 'ALICATE DE CUTÍCULAS MERHEJE ROSA'
+        seo_Titulo: 'Saia Katrina'
     },
     tamanhos: [
         { disponivel: true, tamanho: 'P' },
@@ -388,6 +388,8 @@ export const product: IProductProps = {
     totalParcelado: 20,
     totalParceladoTexto: 'R$ 120,00',
     valorMinimoParcela: 50,
+    valorParcela: 20,
+    valorParcelaTexto: 'R$ 20,00',
     variacoes: [
         {
             cor: 'Azul',
@@ -440,7 +442,7 @@ export const products: IProductCarouselProps[] = [
         descontoProgressivo: true,
         disponivel: true,
         estoque: 976,
-        estoqueLojas: null,
+        estoqueLojas: '',
         favorito: true,
         freteGratis: false,
         id: 56658,
@@ -474,8 +476,8 @@ export const products: IProductCarouselProps[] = [
         precoDeTexto: 'R$ 4,17',
         precoPor: 3.75,
         precoPorTexto: 'R$ 3,75',
-        promocaoId: null,
-        promocaoImagemUrl: null,
+        promocaoId: 0,
+        promocaoImagemUrl: '',
         quantidadeMaximaVenda: 0,
         quantidadeMinimaVenda: 0,
         sku: '795556',
@@ -514,8 +516,8 @@ export const products: IProductCarouselProps[] = [
                 ],
                 nome: 'Saia Katrina',
                 permalink: 'thais-rodrigues-saia-katrina-azul',
-                precoDe: null,
-                precoDeTexto: null,
+                precoDe: 0,
+                precoDeTexto: '',
                 precoPor: 9.58,
                 precoPorTexto: 'R$ 11,28',
                 sku: '1339',
@@ -525,7 +527,7 @@ export const products: IProductCarouselProps[] = [
                 ]
             }
         ],
-        videoUrl: null
+        videoUrl: ''
     },
     {
         aplicarPromocao: false,
@@ -538,7 +540,7 @@ export const products: IProductCarouselProps[] = [
         descontoProgressivo: false,
         disponivel: true,
         estoque: 9111,
-        estoqueLojas: null,
+        estoqueLojas: '',
         favorito: false,
         freteGratis: true,
         id: 50482,
@@ -572,8 +574,8 @@ export const products: IProductCarouselProps[] = [
         precoDeTexto: 'R$ 11,28',
         precoPor: 9.58,
         precoPorTexto: 'R$ 9,58',
-        promocaoId: null,
-        promocaoImagemUrl: null,
+        promocaoId: 0,
+        promocaoImagemUrl: '',
         quantidadeMaximaVenda: 2,
         quantidadeMinimaVenda: 1,
         sku: '1339',
@@ -642,7 +644,7 @@ export const products: IProductCarouselProps[] = [
         descontoProgressivo: false,
         disponivel: false,
         estoque: 9111,
-        estoqueLojas: null,
+        estoqueLojas: '',
         favorito: false,
         freteGratis: true,
         id: 50482,
@@ -672,12 +674,12 @@ export const products: IProductCarouselProps[] = [
         novidade: true,
         novidadeDataExpiracao: '2025-03-29T00:00:00',
         permalink: 'tata-martello-vestido-verao-amarelo',
-        precoDe: null,
-        precoDeTexto: null,
+        precoDe: 0,
+        precoDeTexto: '',
         precoPor: 9.58,
         precoPorTexto: 'R$ 9,58',
-        promocaoId: null,
-        promocaoImagemUrl: null,
+        promocaoId: 0,
+        promocaoImagemUrl: '',
         quantidadeMaximaVenda: 2,
         quantidadeMinimaVenda: 1,
         sku: '1339',
@@ -728,7 +730,7 @@ export const products: IProductCarouselProps[] = [
                 ]
             }
         ],
-        videoUrl: null
+        videoUrl: ''
     },
     {
         aplicarPromocao: false,
@@ -741,7 +743,7 @@ export const products: IProductCarouselProps[] = [
         descontoProgressivo: false,
         disponivel: false,
         estoque: 9111,
-        estoqueLojas: null,
+        estoqueLojas: '',
         favorito: false,
         freteGratis: true,
         id: 50482,
@@ -771,12 +773,12 @@ export const products: IProductCarouselProps[] = [
         novidade: true,
         novidadeDataExpiracao: '2025-03-29T00:00:00',
         permalink: 'dvanelle-vestido-social-florido-azul',
-        precoDe: null,
-        precoDeTexto: null,
+        precoDe: 0,
+        precoDeTexto: '',
         precoPor: 9.58,
         precoPorTexto: 'R$ 9,58',
-        promocaoId: null,
-        promocaoImagemUrl: null,
+        promocaoId: 0,
+        promocaoImagemUrl: '',
         quantidadeMaximaVenda: 2,
         quantidadeMinimaVenda: 1,
         sku: '1339',
@@ -834,6 +836,6 @@ export const products: IProductCarouselProps[] = [
                 ]
             }
         ],
-        videoUrl: null
+        videoUrl: ''
     }
 ]
