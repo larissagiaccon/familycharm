@@ -54,28 +54,55 @@ export default function BannerItem({ banner, index }: IBanner) {
                             banner.abrirNovaJanela ? 'noopener noreferrer' : ''
                         }
                     >
-                        <img
-                            loading="lazy"
-                            src={
-                                windowWidth === 'web'
-                                    ? banner.imagemUrl
-                                    : banner.imagemMobileUrl
-                            }
-                            alt={banner.titulo}
-                        />
+                        {banner.videoUrl !== null && banner.videoUrl !== '' ? (
+                            <video key={index} autoPlay loop muted>
+                                <source
+                                    src={banner.videoUrl}
+                                    type="video/mp4"
+                                />
+                                Seu navegador não suporta a tag de vídeo.
+                            </video>
+                        ) : (
+                            <img
+                                loading="lazy"
+                                src={
+                                    windowWidth === 'web'
+                                        ? banner.imagemUrl
+                                        : banner.imagemMobileUrl
+                                }
+                                alt={banner.titulo}
+                            />
+                        )}
                     </a>
                 ) : (
                     <a href={`${banner.redirecionarUrl}` || '/'}>
-                        <img
-                            loading="lazy"
-                            title={banner.titulo}
-                            src={
-                                windowWidth === 'web'
+                        {banner.videoUrl !== null && banner.videoUrl !== '' ? (
+                            <video key={index} autoPlay loop muted>
+                                <source
+                                    src={banner.videoUrl}
+                                    type="video/mp4"
+                                />
+
+                                {windowWidth === 'web'
                                     ? banner.imagemUrl
+                                        ? banner.imagemUrl
+                                        : 'Seu navegador não suporta a tag de vídeo.'
                                     : banner.imagemMobileUrl
-                            }
-                            alt={banner.titulo}
-                        />
+                                    ? banner.imagemMobileUrl
+                                    : 'Seu navegador não suporta a tag de vídeo.'}
+                            </video>
+                        ) : (
+                            <img
+                                loading="lazy"
+                                title={banner.titulo}
+                                src={
+                                    windowWidth === 'web'
+                                        ? banner.imagemUrl
+                                        : banner.imagemMobileUrl
+                                }
+                                alt={banner.titulo}
+                            />
+                        )}
                     </a>
                 )}
             </Link>
