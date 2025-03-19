@@ -24,16 +24,17 @@ export interface IComponentsProps {
 }
 
 export interface IBannerFullProps {
-    id: number
-    titulo: string
-    imagemUrl: string
-    imagemMobileUrl: string
-    redirecionarUrl: string
     abrirNovaJanela: boolean
+    backgroundColor: string
     campanha: string
     duracao: number
+    id: number
+    imagemMobileUrl: string
+    imagemUrl: string
     ordem: number
-    backgroundColor: string
+    redirecionarUrl: string
+    titulo: string
+    videoUrl: string
 }
 
 export interface IShowcaseProps {
@@ -46,55 +47,74 @@ const productsShowcase: IItemsProps[] = products.map(item => ({
     campanha: '',
     imagemMobileUrl:
         'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_1.jpg?v=1741210460&width=823',
+    imagemUrl: item.imagemPrincipal.grande,
     ordem: 0,
     redirecionarUrl: '',
-    titulo: '',
-    imagemUrl: item.imagemPrincipal.grande
+    titulo: ''
 }))
 
 export const showcase: IShowcaseProps = {
     banners: [
         {
-            id: 651,
-            titulo: 'Tata Martello Entre Laços',
-            imagemUrl:
-                'https://tatamartello.cdn.magazord.com.br/img/2025/03/banner/22904/dsk.jpg',
+            abrirNovaJanela: false,
+            backgroundColor: '',
+            campanha: '',
+            duracao: 10,
+            id: 600,
             imagemMobileUrl:
                 'https://tatamartello.cdn.magazord.com.br/img/2025/03/banner/22904/dsk.jpg',
-            redirecionarUrl: '',
-            abrirNovaJanela: false,
-            campanha: '',
-            duracao: 1000,
+            imagemUrl:
+                'https://tatamartello.cdn.magazord.com.br/img/2025/03/banner/22904/dsk.jpg',
             ordem: 0,
-            backgroundColor: ''
-        },
-        {
-            id: 649,
+            redirecionarUrl: '',
             titulo: 'Thais Rodrigues Mirage',
-            imagemUrl:
-                'https://www.thaisrodrigues.com.br/cdn/shop/files/BANNER_DESKTOP_dc9f0c58-e2b4-4b5d-9100-7a685137cfe1.jpg?v=1741898467&width=1800',
-            imagemMobileUrl:
-                'https://www.thaisrodrigues.com.br/cdn/shop/files/BANNER_DESKTOP_dc9f0c58-e2b4-4b5d-9100-7a685137cfe1.jpg?v=1741898467&width=1800',
-            redirecionarUrl: '',
-            abrirNovaJanela: false,
-            campanha: '',
-            duracao: 1000,
-            ordem: 1,
-            backgroundColor: ''
+            videoUrl:
+                'https://www.thaisrodrigues.com.br/cdn/shop/videos/c/vp/1182ed2f58084ab88469537c3d4d44e3/1182ed2f58084ab88469537c3d4d44e3.HD-720p-4.5Mbps-44468312.mp4?v=0'
         },
         {
-            id: 650,
-            titulo: 'Tata Martello Moda Praia',
+            abrirNovaJanela: false,
+            backgroundColor: '',
+            campanha: '',
+            duracao: 5,
+            id: 651,
+            imagemMobileUrl:
+                'https://tatamartello.cdn.magazord.com.br/img/2025/03/banner/22904/dsk.jpg',
             imagemUrl:
-                'https://tatamartello.cdn.magazord.com.br/img/2025/02/banner/22231/desktop-2.png',
+                'https://tatamartello.cdn.magazord.com.br/img/2025/03/banner/22904/dsk.jpg',
+            ordem: 0,
+            redirecionarUrl: '',
+            titulo: 'Tata Martello Entre Laços',
+            videoUrl: ''
+        },
+        {
+            abrirNovaJanela: false,
+            backgroundColor: '',
+            campanha: '',
+            duracao: 5,
+            id: 649,
+            imagemMobileUrl:
+                'https://www.thaisrodrigues.com.br/cdn/shop/files/BANNER_DESKTOP_dc9f0c58-e2b4-4b5d-9100-7a685137cfe1.jpg?v=1741898467&width=1800',
+            imagemUrl:
+                'https://www.thaisrodrigues.com.br/cdn/shop/files/BANNER_DESKTOP_dc9f0c58-e2b4-4b5d-9100-7a685137cfe1.jpg?v=1741898467&width=1800',
+            ordem: 1,
+            redirecionarUrl: '',
+            titulo: 'Thais Rodrigues Mirage',
+            videoUrl: ''
+        },
+        {
+            abrirNovaJanela: false,
+            backgroundColor: '',
+            campanha: '',
+            duracao: 5,
+            id: 650,
             imagemMobileUrl:
                 'https://tatamartello.cdn.magazord.com.br/img/2025/02/banner/22231/desktop-2.png',
-            redirecionarUrl: '',
-            abrirNovaJanela: false,
-            campanha: '',
-            duracao: 1000,
+            imagemUrl:
+                'https://tatamartello.cdn.magazord.com.br/img/2025/02/banner/22231/desktop-2.png',
             ordem: 2,
-            backgroundColor: ''
+            redirecionarUrl: '',
+            titulo: 'Tata Martello Moda Praia',
+            videoUrl: ''
         }
     ],
     componentes: [
