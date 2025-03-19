@@ -12,7 +12,6 @@ export const Container = styled.div<IContentProps>`
     position: relative;
     text-align: center;
     justify-self: center;
-    width: 100%;
 
     @keyframes entryProductOptionsGroupAnimation {
         from {
@@ -115,6 +114,8 @@ export const Container = styled.div<IContentProps>`
     }
 
     @media (max-width: 768px) {
+        width: 100%;
+
         ${props =>
             props.hoverEffect
                 ? css`
