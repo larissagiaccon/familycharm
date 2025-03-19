@@ -6,7 +6,7 @@ export const Container = styled.button`
     width: max-content;
     padding: 0.8rem 1.2rem;
     border: 0;
-    border-radius: 0.2rem;
+    border-radius: 2rem;
     background: var(--primary_color);
     border: 1px solid var(--primary_color);
 
@@ -23,6 +23,7 @@ export const Container = styled.button`
 
     &:disabled {
         opacity: 0.6;
+        cursor: not-allowed;
     }
 
     &.button-component:not(:disabled):hover {
