@@ -60,6 +60,7 @@ export const Container = styled.div`
         padding-bottom: 1rem;
 
         h3 {
+            font-size: 1.6rem;
             font-weight: 400;
         }
 
