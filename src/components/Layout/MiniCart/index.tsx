@@ -64,7 +64,7 @@ export default function MiniCart({ onClose }: IMiniCartProps) {
                 </div>
 
                 <div className="mini-cart-products-list">
-                    {products.map((item, index) => (
+                    {products.concat(products).map((item, index) => (
                         <MiniCartProductItem key={index} product={item} />
                     ))}
                 </div>

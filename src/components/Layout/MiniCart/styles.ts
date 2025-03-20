@@ -111,7 +111,8 @@ export const Container = styled.div`
         flex-direction: column;
         margin-top: auto;
         gap: 0.5rem;
-        margin-top: 1rem;
+        margin-top: auto;
+        padding-top: 1rem;
 
         button {
             width: 100%;
