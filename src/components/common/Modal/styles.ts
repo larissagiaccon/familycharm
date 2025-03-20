@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 interface IModalProps {
     withScroll: boolean
@@ -38,6 +38,9 @@ export const ContainerWrapper = styled.div`
 `
 
 export const Container = styled.div<IModalProps>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     position: relative;
     background: var(--white);
@@ -109,66 +112,33 @@ export const Container = styled.div<IModalProps>`
         flex-direction: column;
         width: 100%;
         height: 100%;
-        max-height: 80vh;
     }
 
     h4 {
-        color: var(--primary_color);
+        color: var(--text_color);
         font-size: 1.6rem;
         font-weight: 800;
         text-align: center;
         margin-bottom: 3rem;
     }
 
-    input {
-        width: 100%;
-        height: 2.4rem;
-        font-size: 0.9rem;
-        padding-left: 1.4rem;
-        font-weight: 500;
-        border: 1px solid var(--blue);
-        border-radius: 0.2rem;
-    }
-
-    .input-radio input[type='radio'] {
-        padding: 0;
-    }
-
-    .simple-select {
-        width: 100%;
-        max-width: 20rem;
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        border-radius: 0.2rem;
-        border: 1px solid var(--blue);
-    }
-
-    input::placeholder {
-        color: var(--gray);
-    }
-
-    input + input,
-    input + textarea {
+    button {
         margin-top: 1rem;
+        align-self: center;
     }
 
-    .modal-button {
-        cursor: pointer;
-        font-size: 1rem;
-        font-weight: 700;
-        align-self: flex-end;
-        width: max-content;
-        margin-top: 1rem;
-        padding: 0.4rem 1.2rem;
-        border-radius: 0.2rem;
-        color: var(--white);
-        background-color: var(--primary_color);
-        border: 1px solid var(--primary_color);
-    }
+    .group-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 3rem;
+        align-self: center;
 
-    .modal-button:hover {
-        opacity: 0.7;
-        transition: opacity 0.3s;
+        button {
+            margin-top: 0;
+            font-size: 0.8rem;
+            min-width: 6rem;
+            padding: 0.2rem 0.4rem;
+        }
     }
 
     &.modal-see-more-details-modal {
@@ -215,18 +185,8 @@ export const Container = styled.div<IModalProps>`
             max-height: 80vh;
             margin-top: 2rem;
         }
-
-        .simple-select select {
-            padding-right: 3rem;
-        }
-
         h4 {
-            font-size: 1.2rem !important;
-        }
-
-        span,
-        button {
-            font-size: 0.8rem !important;
+            font-size: 1.2rem;
         }
 
         &.modal-see-more-details-modal {
