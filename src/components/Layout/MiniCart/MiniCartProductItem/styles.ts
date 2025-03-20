@@ -21,7 +21,7 @@ export const Container = styled.div`
 
     img {
         height: 100%;
-        width: auyto;
+        width: auto;
         max-width: 5rem;
         max-height: 10rem;
         border-radius: 0.4rem;
@@ -40,5 +40,20 @@ export const Container = styled.div`
 
     & + & {
         border-top: 1px solid var(--gray_000);
+    }
+
+    .modal-change-option {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        .modal-change-info {
+            display: flex;
+            gap: 1rem;
+            border-right: 1px solid var(--gray_000);
+        }
+
+        .variations-group {
+            padding-left: 1rem;
+        }
     }
 `
