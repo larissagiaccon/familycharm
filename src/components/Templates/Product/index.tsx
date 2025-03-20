@@ -46,7 +46,9 @@ export default function Product({ product }: IProductItemProps) {
     useEffect(() => {
         setSizeSelected(featuredProduct.tamanhos[0])
         setFeaturedProductImages(
-            [featuredProduct.imagemPrincipal].concat(featuredProduct.imagens)
+            [featuredProduct.imagemPrincipal]
+                .concat({} as IImageProps) // Item fake para ser substituído pelo vídeo no carrossel de imagens
+                .concat(featuredProduct.imagens)
         )
     }, [featuredProduct])
 
@@ -61,43 +63,60 @@ export default function Product({ product }: IProductItemProps) {
                 speed={0}
             >
                 {featuredProductImages.map((item, index) => (
-                    <SwiperSlide key={index} className="product-image-item">
-                        <Link href={featuredProduct.permalink} passHref>
-                            <a href="">
-                                <img
-                                    src={item.grande}
-                                    alt={product.nome}
-                                    className="featured-product-image"
-                                />
-                            </a>
-                        </Link>
-                    </SwiperSlide>
-                ))}
-                {featuredProduct.videoUrl !== null &&
-                    featuredProduct.videoUrl !== '' && (
-                        <SwiperSlide
-                            key={featuredProductImages.length}
-                            className="product-image-video"
-                        >
-                            <Link href={featuredProduct.permalink} passHref>
-                                <a href="">
-                                    <video
-                                        key={featuredProductImages.length}
-                                        autoPlay
-                                        loop
-                                        muted
-                                    >
-                                        <source
-                                            src={featuredProduct.videoUrl}
-                                            type="video/mp4"
+                    <>
+                        {index !== 1 ? (
+                            <SwiperSlide
+                                key={index}
+                                className="product-image-item"
+                            >
+                                <Link href={featuredProduct.permalink} passHref>
+                                    <a href="">
+                                        <img
+                                            src={item.grande}
+                                            alt={product.nome}
+                                            className="featured-product-image"
                                         />
-                                        Seu navegador não suporta a tag de
-                                        vídeo.
-                                    </video>
-                                </a>
-                            </Link>
-                        </SwiperSlide>
-                    )}
+                                    </a>
+                                </Link>
+                            </SwiperSlide>
+                        ) : (
+                            <>
+                                {featuredProduct.videoUrl !== null &&
+                                    featuredProduct.videoUrl !== '' && (
+                                        <SwiperSlide
+                                            key={featuredProductImages.length}
+                                            className="product-image-video"
+                                        >
+                                            <Link
+                                                href={featuredProduct.permalink}
+                                                passHref
+                                            >
+                                                <a href="">
+                                                    <video
+                                                        key={
+                                                            featuredProductImages.length
+                                                        }
+                                                        autoPlay
+                                                        loop
+                                                        muted
+                                                    >
+                                                        <source
+                                                            src={
+                                                                featuredProduct.videoUrl
+                                                            }
+                                                            type="video/mp4"
+                                                        />
+                                                        Seu navegador não
+                                                        suporta a tag de vídeo.
+                                                    </video>
+                                                </a>
+                                            </Link>
+                                        </SwiperSlide>
+                                    )}
+                            </>
+                        )}
+                    </>
+                ))}
             </Swiper>
 
             <div className="info">
