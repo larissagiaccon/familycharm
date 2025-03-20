@@ -12,14 +12,12 @@ import * as S from './styles'
 
 interface ICarouselProps {
     products: IProductCarouselProps[]
-    componenteVitrineId?: number
     delay?: number
     speed?: number
 }
 
 const ProductCarousel: React.FC<ICarouselProps> = ({
     products,
-    componenteVitrineId,
     delay = 0,
     speed = 0
 }) => {
