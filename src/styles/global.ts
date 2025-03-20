@@ -80,4 +80,8 @@ export default createGlobalStyle`
         object-fit: contain;
         aspect-ratio: var(--images_size);
     }
+
+    svg {
+        cursor: pointer;
+    }
 `
