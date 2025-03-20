@@ -76,7 +76,10 @@ const ProductCarousel: React.FC<ICarouselProps> = ({
                         pauseOnMouseEnter: true,
                         reverseDirection: true
                     }}
-                    pagination={{ clickable: products.length > 2 }}
+                    pagination={{
+                        type: 'custom',
+                        clickable: products.length > 2
+                    }}
                     loop={products.length > 2}
                     navigation={products.length > 2}
                     speed={speed}
