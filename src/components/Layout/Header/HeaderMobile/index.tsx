@@ -48,11 +48,11 @@ export default function HeaderMobile() {
                 </Link>
 
                 <div className="header-mobile-group">
-                    <FiSearch
+                    {/* <FiSearch
                         onClick={() => {
                             setShowSearch(true)
                         }}
-                    />
+                    /> */}
 
                     <div className="cart-itens">
                         <SlBasket />

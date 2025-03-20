@@ -113,7 +113,7 @@ export default function Header() {
                     </Link>
 
                     <div>
-                        <div className="search">
+                        {/* <div className="search">
                             {showSearch ? (
                                 <>
                                     <div
@@ -149,7 +149,7 @@ export default function Header() {
                                     }}
                                 />
                             )}
-                        </div>
+                        </div> */}
 
                         <div className="user-info">
                             <FiUser />
