@@ -13,6 +13,95 @@ export const Container = styled.div`
         object-fit: cover;
     }
 
+    .swiper {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+        user-select: none;
+
+        @keyframes entryButtonPrevAnimation {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes exitButtonPrevAnimation {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes entryButtonNextAnimation {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes exitButtonNextAnimation {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+            opacity: 0.7;
+            border-radius: 70%;
+            background-color: var(--white);
+            color: var(--gray);
+            opacity: 0;
+        }
+
+        .swiper-button-prev:after,
+        .swiper-button-next:after {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            opacity: 1;
+            transition: opacity 0.4s;
+        }
+
+        &:hover {
+            .swiper-button-prev {
+                opacity: 1;
+                animation: entryButtonPrevAnimation 1s;
+            }
+
+            .swiper-button-next {
+                opacity: 1;
+                animation: entryButtonNextAnimation 1s;
+            }
+        }
+
+        &:not(:hover) {
+            .swiper-button-prev {
+                animation: exitButtonPrevAnimation 1s;
+            }
+
+            .swiper-button-next {
+                animation: exitButtonNextAnimation 1s;
+            }
+        }
+    }
+
     .info {
         display: flex;
         flex-direction: column;

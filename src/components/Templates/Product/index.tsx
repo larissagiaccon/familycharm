@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import Link from 'next/link'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { FaPix, FaCreditCard } from 'react-icons/fa6'
 import { TiHeart, TiHeartOutline } from 'react-icons/ti'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 import Button from 'components/common/Button'
 
 import {
+    IImageProps,
     IProductProps,
     IVariationItemProps,
     IProductCarouselProps,
@@ -20,10 +23,15 @@ interface IProductItemProps {
 }
 
 export default function Product({ product }: IProductItemProps) {
+    const swiperRef = useRef(null)
+
     const [sizeSelected, setSizeSelected] =
         useState<IVariationsSizesAvailableProps>()
     const [featuredProduct, setFeaturedProduct] =
         useState<IVariationItemProps>(product)
+    const [featuredProductImages, setFeaturedProductImages] = useState<
+        IImageProps[]
+    >(featuredProduct.imagens)
 
     useEffect(() => {
         const availableVariation = product.variacoes.find(
@@ -37,19 +45,35 @@ export default function Product({ product }: IProductItemProps) {
 
     useEffect(() => {
         setSizeSelected(featuredProduct.tamanhos[0])
+        setFeaturedProductImages(
+            [featuredProduct.imagemPrincipal].concat(featuredProduct.imagens)
+        )
     }, [featuredProduct])
 
     return (
         <S.Container className="product">
-            <Link href={product.permalink} passHref>
-                <a href="">
-                    <img
-                        src={featuredProduct.imagemPrincipal.grande}
-                        alt={product.nome}
-                        className="featured-product-image"
-                    />
-                </a>
-            </Link>
+            <Swiper
+                ref={swiperRef}
+                modules={[Navigation, Pagination, Autoplay]}
+                slidesPerView={1}
+                loop={featuredProductImages.length > 1}
+                navigation={featuredProductImages.length > 1}
+                speed={0}
+            >
+                {featuredProductImages.map((item, index) => (
+                    <SwiperSlide key={index} className="product-image-item">
+                        <Link href={featuredProduct.permalink} passHref>
+                            <a href="">
+                                <img
+                                    src={item.grande}
+                                    alt={product.nome}
+                                    className="featured-product-image"
+                                />
+                            </a>
+                        </Link>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
 
             <div className="info">
                 <h4 className="product-name">{featuredProduct.nome}</h4>
