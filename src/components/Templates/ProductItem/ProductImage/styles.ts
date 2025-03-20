@@ -50,10 +50,7 @@ export const Container = styled.div`
     }
 
     .variations-group {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
         width: 100%;
         background-color: rgba(255, 255, 255, 0.7);
         padding: 0.7rem 0;
@@ -65,51 +62,9 @@ export const Container = styled.div`
         visibility: hidden;
         transition: opacity 0.5s ease;
 
-        > div {
-            display: flex;
-            gap: 0.5rem;
-            user-select: none;
-        }
-
-        p {
-            border: 1px solid var(--gray_300);
-            border-radius: 0.2rem;
-        }
-
-        .variation-color {
-            width: 1rem;
-            height: 1rem;
-        }
-
         .variation-size {
-            height: auto;
-            width: auto;
-            padding: 0.2rem 0.4rem;
-            text-align: center;
-            background-color: var(--white);
-            font-size: 0.9rem;
+            cursor: default;
         }
-    }
-
-    .unavailable {
-        position: relative;
-        opacity: 0.6;
-
-        ::after {
-            content: '';
-            position: absolute;
-            width: 110%;
-            height: 1.5px;
-            background-color: #c21;
-            transform-origin: center;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
-    }
-
-    .variations-group p.selected {
-        border: 1px solid #000;
     }
 
     &:hover {

@@ -84,4 +84,69 @@ export default createGlobalStyle`
     svg {
         cursor: pointer;
     }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        list-style-type: none;
+        margin: 0;
+    }
+
+    .variations-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        > div {
+            display: flex;
+            gap: 0.5rem;
+            user-select: none;
+        }
+
+        .variation-color {
+            width: 1rem;
+            height: 1rem;
+            object-fit: cover;
+            border-radius: 0.2rem;
+            cursor: pointer;
+        }
+
+        .variation-size {
+            height: auto;
+            width: auto;
+            max-width: max-content;
+            padding: 0.2rem 0.4rem;
+            text-align: center;
+            background-color: var(--white);
+            font-size: 0.9rem;
+            border: 1px solid var(--gray_400);
+            border-radius: 0.2rem;
+            cursor: pointer;
+        }
+    }
+
+    .unavailable {
+        position: relative;
+        opacity: 0.6;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 110%;
+            height: 1.5px;
+            background-color: #c21;
+            transform-origin: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+
+    .selected:not(.unavailable) {
+        border: 1px solid #000;
+    }
 `
