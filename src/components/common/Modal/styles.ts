@@ -175,9 +175,22 @@ export const Container = styled.div<IModalProps>`
         padding: 0 1rem 0 0;
         max-width: 60vw;
         overflow: hidden;
+        height: 100%;
 
         .modal-content {
             height: 100%;
+        }
+    }
+
+    @media (max-width: 1270px) {
+        &.modal-see-more-details-modal {
+            max-width: 70vw;
+        }
+    }
+
+    @media (max-width: 1100px) {
+        &.modal-see-more-details-modal {
+            max-width: 80vw;
         }
     }
 
@@ -214,6 +227,10 @@ export const Container = styled.div<IModalProps>`
         span,
         button {
             font-size: 0.8rem !important;
+        }
+
+        &.modal-see-more-details-modal {
+            display: none;
         }
     }
 
