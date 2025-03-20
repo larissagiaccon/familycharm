@@ -73,6 +73,31 @@ export default function Product({ product }: IProductItemProps) {
                         </Link>
                     </SwiperSlide>
                 ))}
+                {featuredProduct.videoUrl !== null &&
+                    featuredProduct.videoUrl !== '' && (
+                        <SwiperSlide
+                            key={featuredProductImages.length}
+                            className="product-image-video"
+                        >
+                            <Link href={featuredProduct.permalink} passHref>
+                                <a href="">
+                                    <video
+                                        key={featuredProductImages.length}
+                                        autoPlay
+                                        loop
+                                        muted
+                                    >
+                                        <source
+                                            src={featuredProduct.videoUrl}
+                                            type="video/mp4"
+                                        />
+                                        Seu navegador não suporta a tag de
+                                        vídeo.
+                                    </video>
+                                </a>
+                            </Link>
+                        </SwiperSlide>
+                    )}
             </Swiper>
 
             <div className="info">

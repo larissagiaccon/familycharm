@@ -56,6 +56,7 @@ export interface IVariationItemProps {
     precoPorTexto: string
     sku: string
     tamanhos: Array<IVariationsSizesAvailableProps>
+    videoUrl: string
 }
 
 export interface IProgressiveItemProps {
@@ -424,7 +425,9 @@ export const product: IProductProps = {
             tamanhos: [
                 { disponivel: true, tamanho: 'P' },
                 { disponivel: false, tamanho: 'M' }
-            ]
+            ],
+            videoUrl:
+                'https://global-videos.zordcdn.com.br/tatamartello/img/2025/03/produto/22881/5831-vestido-2.mp4'
         }
     ],
     videoUrl: ''
@@ -506,11 +509,19 @@ export const products: IProductCarouselProps[] = [
                 },
                 imagens: [
                     {
-                        grande: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
-                        media: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
-                        mini: 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+                        grande: 'https://tatamartello.cdn.magazord.com.br/img/2023/10/produto/11767/2105pk-2.jpg?ims=420x672',
+                        media: 'https://tatamartello.cdn.magazord.com.br/img/2023/10/produto/11767/2105pk-2.jpg?ims=420x672',
+                        mini: 'https://tatamartello.cdn.magazord.com.br/img/2023/10/produto/11767/2105pk-2.jpg?ims=420x672',
                         pequena:
-                            'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
+                            'https://tatamartello.cdn.magazord.com.br/img/2023/10/produto/11767/2105pk-2.jpg?ims=420x672',
+                        principal: true
+                    },
+                    {
+                        grande: 'https://tatamartello.cdn.magazord.com.br/img/2024/07/produto/16228/5393-1.jpg?ims=420x672',
+                        media: 'https://tatamartello.cdn.magazord.com.br/img/2024/07/produto/16228/5393-1.jpg?ims=420x672',
+                        mini: 'https://tatamartello.cdn.magazord.com.br/img/2024/07/produto/16228/5393-1.jpg?ims=420x672',
+                        pequena:
+                            'https://tatamartello.cdn.magazord.com.br/img/2024/07/produto/16228/5393-1.jpg?ims=420x672',
                         principal: true
                     }
                 ],
@@ -524,7 +535,9 @@ export const products: IProductCarouselProps[] = [
                 tamanhos: [
                     { disponivel: true, tamanho: 'P' },
                     { disponivel: false, tamanho: 'M' }
-                ]
+                ],
+                videoUrl:
+                    'https://global-videos.zordcdn.com.br/tatamartello/img/2025/03/produto/22881/5831-vestido-2.mp4'
             }
         ],
         videoUrl: ''
@@ -611,6 +624,22 @@ export const products: IProductCarouselProps[] = [
                         pequena:
                             'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/22465/5709-rosa-7.jpg?ims=630x1008',
                         principal: true
+                    },
+                    {
+                        grande: 'https://tatamartello.cdn.magazord.com.br/img/2023/10/produto/11767/2105pk-2.jpg?ims=420x672',
+                        media: 'https://tatamartello.cdn.magazord.com.br/img/2023/10/produto/11767/2105pk-2.jpg?ims=420x672',
+                        mini: 'https://tatamartello.cdn.magazord.com.br/img/2023/10/produto/11767/2105pk-2.jpg?ims=420x672',
+                        pequena:
+                            'https://tatamartello.cdn.magazord.com.br/img/2023/10/produto/11767/2105pk-2.jpg?ims=420x672',
+                        principal: true
+                    },
+                    {
+                        grande: 'https://tatamartello.cdn.magazord.com.br/img/2024/07/produto/16228/5393-1.jpg?ims=420x672',
+                        media: 'https://tatamartello.cdn.magazord.com.br/img/2024/07/produto/16228/5393-1.jpg?ims=420x672',
+                        mini: 'https://tatamartello.cdn.magazord.com.br/img/2024/07/produto/16228/5393-1.jpg?ims=420x672',
+                        pequena:
+                            'https://tatamartello.cdn.magazord.com.br/img/2024/07/produto/16228/5393-1.jpg?ims=420x672',
+                        principal: true
                     }
                 ],
                 nome: 'Vestido Malha',
@@ -627,7 +656,9 @@ export const products: IProductCarouselProps[] = [
                     { disponivel: true, tamanho: 'M' },
                     { disponivel: false, tamanho: 'G' },
                     { disponivel: true, tamanho: 'GG' }
-                ]
+                ],
+                videoUrl:
+                    'https://global-videos.zordcdn.com.br/tatamartello/img/2025/03/produto/22881/5831-vestido-2.mp4'
             }
         ],
         videoUrl:
@@ -727,7 +758,8 @@ export const products: IProductCarouselProps[] = [
                     { disponivel: true, tamanho: 'P' },
                     { disponivel: false, tamanho: 'M' },
                     { disponivel: true, tamanho: 'G' }
-                ]
+                ],
+                videoUrl: ''
             }
         ],
         videoUrl: ''
@@ -833,7 +865,8 @@ export const products: IProductCarouselProps[] = [
                     { disponivel: true, tamanho: 'M' },
                     { disponivel: true, tamanho: 'G' },
                     { disponivel: true, tamanho: 'GG' }
-                ]
+                ],
+                videoUrl: ''
             }
         ],
         videoUrl: ''

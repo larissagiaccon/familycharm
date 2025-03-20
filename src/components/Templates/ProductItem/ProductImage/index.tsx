@@ -73,7 +73,7 @@ export default function ProductImage({
                                                         alt={product.nome}
                                                     />
                                                 ) : (
-                                                    'Seu navegador não suporta a tag                                                de vídeo.'
+                                                    'Seu navegador não suporta a tag de vídeo.'
                                                 )}
                                             </video>
                                         ) : (
