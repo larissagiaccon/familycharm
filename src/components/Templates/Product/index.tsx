@@ -84,7 +84,7 @@ export default function Product({ product }: IProductItemProps) {
                                 {featuredProduct.videoUrl !== null &&
                                     featuredProduct.videoUrl !== '' && (
                                         <SwiperSlide
-                                            key={featuredProductImages.length}
+                                            key={index}
                                             className="product-image-video"
                                         >
                                             <Link
@@ -92,14 +92,7 @@ export default function Product({ product }: IProductItemProps) {
                                                 passHref
                                             >
                                                 <a href="">
-                                                    <video
-                                                        key={
-                                                            featuredProductImages.length
-                                                        }
-                                                        autoPlay
-                                                        loop
-                                                        muted
-                                                    >
+                                                    <video autoPlay loop muted>
                                                         <source
                                                             src={
                                                                 featuredProduct.videoUrl
