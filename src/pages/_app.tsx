@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 
+import AppProvider from 'hooks'
+
 import { config } from '../mocks' // TODO REMOVER MOCK
 
 import GlobalStyle from '../styles/global'
@@ -47,7 +49,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     }, [])
 
     return (
-        <>
+        <AppProvider>
             <Head>
                 <meta
                     name="viewport"
@@ -57,7 +59,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
             <Component {...pageProps} />
             <GlobalStyle />
-        </>
+        </AppProvider>
     )
 }
 
