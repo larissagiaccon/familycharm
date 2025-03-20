@@ -247,7 +247,7 @@ export const product: IProductProps = {
     correlatados: [
         {
             codigo: '38547',
-            deepLink: 'familycharm://produto?sku=38547',
+            deepLink: 'flordodeserto://produto?sku=38547',
             desconto: 0,
             freteGratis: true,
             id: 53240,
@@ -262,7 +262,7 @@ export const product: IProductProps = {
         },
         {
             codigo: '806523',
-            deepLink: 'familycharm://produto?sku=806523',
+            deepLink: 'flordodeserto://produto?sku=806523',
             desconto: 0,
             freteGratis: true,
             id: 55038,
@@ -277,7 +277,7 @@ export const product: IProductProps = {
         }
     ],
     deepLink:
-        'familycharm://produto?sku=thais-rodrigues-saia-katrina-verde-lima',
+        'flordodeserto://produto?sku=thais-rodrigues-saia-katrina-verde-lima',
     desconto: 15,
     descricaoGeral:
         'Para remoção de cutículas, afiado, aço inox e esterilizável, cabos com proteção antibacteriana.',
