@@ -28,6 +28,10 @@ export const Container = styled.div`
         }
     }
 
+    .similar-products {
+        margin-top: 4rem;
+    }
+
     @media (max-width: 1000px) {
         .product .gallery {
             display: none;

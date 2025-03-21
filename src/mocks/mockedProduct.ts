@@ -22,21 +22,6 @@ export interface IImageProps {
     principal: boolean
 }
 
-export interface ICorrelatoItemProps {
-    codigo: string
-    deepLink: string
-    desconto: number
-    freteGratis: boolean
-    id: number
-    imagemUrl: string
-    nome: string
-    permalink: string
-    precoDe: number
-    precoDeTexto: string
-    precoPor: number
-    precoPorTexto: string
-}
-
 export interface IVariationsSizesAvailableProps {
     disponivel: boolean
     tamanho: string
@@ -120,7 +105,7 @@ export interface IProductProps {
     cliqueRetire: boolean
     codigo: string
     cor: string
-    correlatados: Array<ICorrelatoItemProps>
+    correlatados: Array<IProductCarouselProps>
     deepLink: string
     desconto: number
     descontoProgressivo: boolean
@@ -246,34 +231,211 @@ export const product: IProductProps = {
     codigo: '1339',
     correlatados: [
         {
-            codigo: '38547',
-            deepLink: 'flordodeserto://produto?sku=38547',
-            desconto: 0,
+            aplicarPromocao: false,
+            categoria: 'Tatá Martello > Vestidos',
+            categoriaId: 0,
+            cliqueRetire: true,
+            codigo: '1339',
+            cor: 'Amarelo',
+            desconto: 15,
+            descontoProgressivo: false,
+            disponivel: false,
+            estoque: 9111,
+            estoqueLojas: '',
+            favorito: false,
             freteGratis: true,
-            id: 53240,
-            imagemUrl:
-                'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
-            nome: 'Saia Luiza',
-            permalink: 'thais-rodrigues-saia-luiza-azul',
-            precoDe: 20.82,
-            precoDeTexto: 'R$ 20,82',
-            precoPor: 20.36,
-            precoPorTexto: 'R$ 20,36'
+            id: 50482,
+            imagemPrincipal: {
+                grande: 'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+                media: 'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+                mini: 'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+                pequena:
+                    'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+                principal: true
+            },
+            imagens: [
+                {
+                    grande: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                    media: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                    mini: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                    pequena:
+                        'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                    principal: true
+                }
+            ],
+            marca: 'TATÁ MARTELO',
+            marcaId: 0,
+            maximoParcelas: 1,
+            nome: 'Vestido Verão',
+            notaMedia: 0.0,
+            novidade: true,
+            novidadeDataExpiracao: '2025-03-29T00:00:00',
+            permalink: 'tata-martello-vestido-verao-amarelo',
+            precoDe: 0,
+            precoDeTexto: '',
+            precoPor: 9.58,
+            precoPorTexto: 'R$ 9,58',
+            promocaoId: 0,
+            promocaoImagemUrl: '',
+            quantidadeMaximaVenda: 2,
+            quantidadeMinimaVenda: 1,
+            sku: '1339',
+            tamanhos: [
+                { disponivel: false, tamanho: 'G' },
+                { disponivel: false, tamanho: 'GG' }
+            ],
+            tipo: 'COMUM',
+            totalParcelado: 20,
+            totalParceladoTexto: 'R$ 120,00',
+            valorParcela: 9.58,
+            valorParcelaTexto: 'R$ 9,58',
+            variacoes: [
+                {
+                    cor: 'Azul Bebê',
+                    desconto: 15,
+                    disponivel: true,
+                    estoque: 9111,
+                    imagemPrincipal: {
+                        grande: 'https://tatamartello.cdn.magazord.com.br/img/2024/12/produto/20953/5738-azul.jpg?ims=630x1008',
+                        media: 'https://tatamartello.cdn.magazord.com.br/img/2024/12/produto/20953/5738-azul.jpg?ims=630x1008',
+                        mini: 'https://tatamartello.cdn.magazord.com.br/img/2024/12/produto/20953/5738-azul.jpg?ims=630x1008',
+                        pequena:
+                            'https://tatamartello.cdn.magazord.com.br/img/2024/12/produto/20953/5738-azul.jpg?ims=630x1008',
+                        principal: true
+                    },
+                    imagens: [
+                        {
+                            grande: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                            media: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                            mini: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                            pequena:
+                                'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                            principal: true
+                        }
+                    ],
+                    nome: 'Vestido Verão',
+                    permalink: 'tata-martello-vestido-verao-azul-bebe',
+                    precoDe: 11.28,
+                    precoDeTexto: 'R$ 11,28',
+                    precoPor: 9.58,
+                    precoPorTexto: 'R$ 11,28',
+                    sku: '1338',
+                    tamanhos: [
+                        { disponivel: true, tamanho: 'P' },
+                        { disponivel: false, tamanho: 'M' },
+                        { disponivel: true, tamanho: 'G' }
+                    ],
+                    videoUrl: ''
+                }
+            ],
+            videoUrl: ''
         },
         {
-            codigo: '806523',
-            deepLink: 'flordodeserto://produto?sku=806523',
-            desconto: 0,
+            aplicarPromocao: false,
+            categoria: "D'Vanelle > Vestidos",
+            categoriaId: 0,
+            cliqueRetire: true,
+            codigo: '1339',
+            cor: 'Azul',
+            desconto: 15,
+            descontoProgressivo: false,
+            disponivel: false,
+            estoque: 9111,
+            estoqueLojas: '',
+            favorito: false,
             freteGratis: true,
-            id: 55038,
-            imagemUrl:
-                'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0044_004_1.jpg?v=1740922773&width=823',
-            nome: 'Saia Luana',
-            permalink: 'thais-rodrigues-saia-luana-azul',
-            precoDe: 16.38,
-            precoDeTexto: 'R$ 16,38',
-            precoPor: 13.92,
-            precoPorTexto: 'R$ 13,92'
+            id: 50482,
+            imagemPrincipal: {
+                grande: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-2.jpg',
+                media: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-2.jpg',
+                mini: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-2.jpg',
+                pequena:
+                    'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-2.jpg',
+                principal: true
+            },
+            imagens: [
+                {
+                    grande: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-3-d-vanelle.jpg',
+                    media: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-3-d-vanelle.jpg',
+                    mini: 'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-3-d-vanelle.jpg',
+                    pequena:
+                        'https://cdn.entrypoint.directory/assets/62469/produtos/624/vestido-laura-azul-3-d-vanelle.jpg',
+                    principal: true
+                }
+            ],
+            marca: "D'VANELLE",
+            marcaId: 0,
+            maximoParcelas: 1,
+            nome: 'Vestido Social Florido',
+            notaMedia: 0.0,
+            novidade: true,
+            novidadeDataExpiracao: '2025-03-29T00:00:00',
+            permalink: 'dvanelle-vestido-social-florido-azul',
+            precoDe: 0,
+            precoDeTexto: '',
+            precoPor: 9.58,
+            precoPorTexto: 'R$ 9,58',
+            promocaoId: 0,
+            promocaoImagemUrl: '',
+            quantidadeMaximaVenda: 2,
+            quantidadeMinimaVenda: 1,
+            sku: '1339',
+            tamanhos: [
+                { disponivel: false, tamanho: '36' },
+                { disponivel: true, tamanho: 'PP' },
+                { disponivel: true, tamanho: 'P' },
+                { disponivel: true, tamanho: 'M' },
+                { disponivel: true, tamanho: 'G' },
+                { disponivel: true, tamanho: 'GG' }
+            ],
+            tipo: 'COMUM',
+            totalParcelado: 20,
+            totalParceladoTexto: 'R$ 120,00',
+            valorParcela: 9.58,
+            valorParcelaTexto: 'R$ 9,58',
+            variacoes: [
+                {
+                    cor: 'Marrom',
+                    desconto: 15,
+                    disponivel: true,
+                    estoque: 9111,
+                    imagemPrincipal: {
+                        grande: 'https://cdn.entrypoint.directory/assets/62469/produtos/625/vestido-laura-marrom-1.jpg',
+                        media: 'https://cdn.entrypoint.directory/assets/62469/produtos/625/vestido-laura-marrom-1.jpg',
+                        mini: 'https://cdn.entrypoint.directory/assets/62469/produtos/625/vestido-laura-marrom-1.jpg',
+                        pequena:
+                            'https://cdn.entrypoint.directory/assets/62469/produtos/625/vestido-laura-marrom-1.jpg',
+                        principal: true
+                    },
+                    imagens: [
+                        {
+                            grande: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                            media: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                            mini: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                            pequena:
+                                'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+                            principal: true
+                        }
+                    ],
+                    nome: 'Vestido Social Florido Marrom',
+                    permalink: 'dvanelle-vestido-social-florido-marrom',
+                    precoDe: 11.28,
+                    precoDeTexto: 'R$ 11,28',
+                    precoPor: 9.58,
+                    precoPorTexto: 'R$ 11,28',
+                    sku: '1338',
+                    tamanhos: [
+                        { disponivel: true, tamanho: '36' },
+                        { disponivel: false, tamanho: 'PP' },
+                        { disponivel: true, tamanho: 'P' },
+                        { disponivel: true, tamanho: 'M' },
+                        { disponivel: true, tamanho: 'G' },
+                        { disponivel: true, tamanho: 'GG' }
+                    ],
+                    videoUrl: ''
+                }
+            ],
+            videoUrl: ''
         }
     ],
     deepLink:

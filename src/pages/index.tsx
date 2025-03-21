@@ -25,7 +25,7 @@ export default function Home() {
                                 className="components-group"
                             >
                                 {component.exibirTitulo && (
-                                    <h3 className="component-title">
+                                    <h3 className="section-title">
                                         {component.titulo}
                                     </h3>
                                 )}
