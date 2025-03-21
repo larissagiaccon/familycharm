@@ -1,10 +1,10 @@
 import Layout from 'components/Layout'
 import Product from 'components/Templates/Product'
+import ProductCarousel from 'components/Templates/Carousel/ProductCarousel'
 
 import { product } from 'mocks' // TODO REMOVER MOCK
 
 import * as S from '../styles/pages/PDP'
-import ProductCarousel from 'components/Templates/Carousel/ProductCarousel'
 
 export default function PDP() {
     return (
