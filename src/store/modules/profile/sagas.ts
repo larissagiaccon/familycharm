@@ -306,8 +306,6 @@ function* signInRequest({ payload }: ISignInRequest) {
             data: user
         }
 
-        console.log(response)
-
         const splitName = response.data.nomeCompleto.split(' ')
         const concatName = splitName[0] + ' ' + splitName[splitName.length - 1]
 

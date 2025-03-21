@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FaPix, FaCreditCard } from 'react-icons/fa6'
+import { useDispatch, useSelector } from 'react-redux'
 import { TiHeart, TiHeartOutline } from 'react-icons/ti'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
@@ -14,6 +15,12 @@ import {
     IProductCarouselProps,
     IVariationsSizesAvailableProps
 } from 'store/modules/product'
+import { IState } from 'store'
+import { useNotices } from 'hooks'
+import { getGACartItemsParams } from 'utils/gtag'
+import { objectIsEmpty } from 'utils/objectEmpty'
+import { addProductToCart } from 'store/modules/cart'
+import { IUserProps, removeFavorite, setFavorite } from 'store/modules/profile'
 
 import Button from 'components/common/Button'
 import { Gallery } from 'components/pages/PDP/Gallery'
@@ -25,8 +32,13 @@ interface IProductItemProps {
 }
 
 export default function Product({ product }: IProductItemProps) {
+    const router = useRouter()
     const swiperRef = useRef(null)
+    const dispatch = useDispatch()
     const { pathname } = useRouter()
+    const { addNotices } = useNotices()
+
+    const user = useSelector<IState, IUserProps>(state => state.profile.user)
 
     const [sizeSelected, setSizeSelected] =
         useState<IVariationsSizesAvailableProps>()
@@ -35,6 +47,8 @@ export default function Product({ product }: IProductItemProps) {
     const [featuredProductImages, setFeaturedProductImages] = useState<
         IImageProps[]
     >(featuredProduct.imagens)
+    const [quantityItems, setQuantityItems] = useState(1)
+    const [isFavorite, setIsFavorite] = useState(product.favorito)
     const [showProductVideo, setShowProductVideo] = useState(false)
 
     useEffect(() => {
@@ -55,6 +69,71 @@ export default function Product({ product }: IProductItemProps) {
                 .concat(featuredProduct.imagens)
         )
     }, [featuredProduct])
+
+    const handleAddProduct = useCallback(
+        (showAfterRequest: boolean, quantity?: number) => {
+            dispatch(
+                addProductToCart({
+                    sku: product.codigo,
+                    quantity: quantity ? quantity : quantityItems,
+                    showAfterRequest,
+                    GA: getGACartItemsParams({
+                        product,
+                        qty: quantity ? quantity : quantityItems
+                    })
+                })
+            )
+        },
+        [dispatch, product, quantityItems]
+    )
+
+    const handleFavoriteProduct = useCallback(() => {
+        if (user || objectIsEmpty(user)) {
+            router.push(`/identificacao?ReturnUrl=/${product.permalink}`)
+        } else if (isFavorite) {
+            addNotices({
+                type: 'warn',
+                messages: [
+                    `Deseja excluir ${product.nome} dos seus favoritos?`
+                ],
+                needConfirmation: true,
+                action: () => {
+                    dispatch(
+                        removeFavorite({
+                            productId: product.id,
+                            sku: product.permalink
+                        })
+                    )
+
+                    setIsFavorite(false)
+
+                    setTimeout(() => {
+                        addNotices({
+                            type: 'success',
+                            messages: [
+                                `${product.nome} foi removido dos seus favoritos!`
+                            ]
+                        })
+                    }, 1000)
+                }
+            })
+        } else {
+            dispatch(
+                setFavorite({
+                    clientId: user.id,
+                    productId: product.id,
+                    sku: product.permalink
+                })
+            )
+
+            setIsFavorite(true)
+
+            addNotices({
+                type: 'success',
+                messages: [`${product.nome} foi salvo nos seus favoritos!`]
+            })
+        }
+    }, [product, isFavorite])
 
     return (
         <S.Container className="product">
@@ -277,17 +356,20 @@ export default function Product({ product }: IProductItemProps) {
 
                 <div className="buttons-group">
                     {featuredProduct.disponivel && sizeSelected?.disponivel ? (
-                        <Button>Adicionar ao carrinho</Button>
+                        <Button onClick={() => handleAddProduct(true)}>
+                            Adicionar ao carrinho
+                        </Button>
                     ) : (
                         <Button disabled>Esgotado</Button>
                     )}
 
                     <span
                         className={`${
-                            product.favorito ? 'favorite' : 'not-favorite'
+                            isFavorite ? 'favorite' : 'not-favorite'
                         }`}
+                        onClick={handleFavoriteProduct}
                     >
-                        {product.favorito ? <TiHeart /> : <TiHeartOutline />}
+                        {isFavorite ? <TiHeart /> : <TiHeartOutline />}
                     </span>
                 </div>
 

@@ -109,11 +109,11 @@ function* addProductToCartRequest({ payload }: IAddProductToCartRequest) {
 
         const campanha = Cookies.get('@FlordoDeserto:campanha')
 
-        const response = yield call(api.post, 'carrinho/adicionar', {
-            sku,
-            quantidade: quantity,
-            promocaoIdGA4: campanha ? JSON.parse(campanha).promotionId : null
-        })
+        // const response = yield call(api.post, 'carrinho/adicionar', {
+        //     sku,
+        //     quantidade: quantity,
+        //     promocaoIdGA4: campanha ? JSON.parse(campanha).promotionId : null
+        // })
 
         GAEvent({ action: 'add_to_cart', data: GA })
         GAEvent({ action: 'page_view', data: getPageView() })
