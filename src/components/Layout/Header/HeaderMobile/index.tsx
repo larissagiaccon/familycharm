@@ -2,23 +2,22 @@ import { useEffect, useState } from 'react'
 
 import Link from 'next/link'
 import debounce from 'lodash.debounce'
+import { useRouter } from 'next/router'
 import { SlBasket } from 'react-icons/sl'
 import { FiMenu, FiSearch, FiX } from 'react-icons/fi'
 
-import MiniCart from 'components/Layout/MiniCart'
+import { useMiniCart } from 'hooks'
 
 import { cart, config } from 'mocks' // TODO REMOVER MOCK
 
 import * as S from './styles'
 
 export default function HeaderMobile() {
+    const router = useRouter()
+    const { dropMiniCart } = useMiniCart()
+
     const [showSearch, setShowSearch] = useState(false)
     const [closingSearch, setClosingSearch] = useState(false)
-    const [showMiniCart, setShowMiniCart] = useState(false) // TODO REMOVER MOCK
-
-    function dropMiniCart() {
-        setShowMiniCart(false)
-    } // TODO REMOVER MOCK
 
     const handleScroll = debounce(() => {
         if (typeof window !== 'undefined') {
@@ -39,8 +38,6 @@ export default function HeaderMobile() {
 
     return (
         <>
-            {/* TODO REMOVER QUANDO ADICIONAR HOOK CARRINHO */}
-            {showMiniCart && <MiniCart onClose={dropMiniCart} />}{' '}
             <S.Container className="header-mobile" id="header-mobile">
                 <div id="height-swap-mobile" />
 
@@ -66,7 +63,10 @@ export default function HeaderMobile() {
 
                         <div
                             className="cart-itens"
-                            onClick={() => setShowMiniCart(true)}
+                            onClick={() => {
+                                if (!router.asPath.includes('/checkout'))
+                                    dropMiniCart()
+                            }}
                         >
                             <SlBasket />
                             <p>{cart.totalItens}</p>

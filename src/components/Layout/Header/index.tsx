@@ -1,25 +1,33 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import Link from 'next/link'
 import debounce from 'lodash.debounce'
+import { useRouter } from 'next/router'
 import { SlBasket } from 'react-icons/sl'
-import { FiMenu, FiSearch, FiUser, FiX } from 'react-icons/fi'
+import { FiMenu, FiUser } from 'react-icons/fi'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { IState } from 'store'
+import { useMiniCart } from 'hooks'
+import { ICartProps } from 'store/modules/cart'
+import { IUserProps, signOut } from 'store/modules/profile'
+import { IConfigProps } from 'store/modules/config'
 
 import MiniCart from '../MiniCart'
 import HeaderMobile from './HeaderMobile'
 
-import { cart, config, user } from 'mocks' // TODO REMOVER MOCK
-
 import * as S from './styles'
 
 export default function Header() {
+    const router = useRouter()
+    const dispatch = useDispatch()
+    const { dropMiniCart, dropped } = useMiniCart()
+    const cart = useSelector<IState, ICartProps>(state => state.cart.cart)
+    const user = useSelector<IState, IUserProps>(state => state.profile.user)
+    const { config } = useSelector<IState, IConfigProps>(state => state.config)
+
     const [showSearch, setShowSearch] = useState(false)
     const [closingSearch, setClosingSearch] = useState(false)
-    const [showMiniCart, setShowMiniCart] = useState(false) // TODO REMOVER MOCK
-
-    function dropMiniCart() {
-        setShowMiniCart(false)
-    } // TODO REMOVER MOCK
 
     const handleScroll = debounce(() => {
         if (typeof window !== 'undefined') {
@@ -90,9 +98,13 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    const handleSignOut = useCallback(() => {
+        dispatch(signOut({}))
+    }, [dispatch])
+
     return (
         <>
-            {showMiniCart && <MiniCart onClose={dropMiniCart} />}
+            {dropped && <MiniCart onClose={dropMiniCart} />}
 
             <S.Container className="header">
                 <HeaderMobile />
@@ -154,15 +166,20 @@ export default function Header() {
                         <div className="user-info">
                             <FiUser />
                             {user ? (
-                                <Link
-                                    href="/central-do-cliente/minha-conta"
-                                    passHref
-                                >
-                                    <a href="">
-                                        <p>Olá, {user.nomeExibicao}!</p>
-                                        <strong>Minha conta</strong>
-                                    </a>
-                                </Link>
+                                <>
+                                    <Link
+                                        href="/central-do-cliente/minha-conta"
+                                        passHref
+                                    >
+                                        <a href="">
+                                            <p>Olá, {user.nomeExibicao}!</p>
+                                            <strong>Minha conta</strong>
+                                        </a>
+                                    </Link>
+                                    <strong onClick={handleSignOut}>
+                                        Sair
+                                    </strong>
+                                </>
                             ) : (
                                 <Link href="/identificacao" passHref>
                                     <a href="">
@@ -175,7 +192,10 @@ export default function Header() {
 
                         <div
                             className="cart-itens"
-                            onClick={() => setShowMiniCart(true)}
+                            onClick={() => {
+                                if (!router.asPath.includes('/checkout'))
+                                    dropMiniCart()
+                            }}
                         >
                             <SlBasket />
                             <p>{cart.totalItens}</p>
