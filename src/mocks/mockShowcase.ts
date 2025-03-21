@@ -1,41 +1,10 @@
-import { IProductCarouselProps, products } from './mockedProduct'
+import {
+    IBannerFullProps,
+    IComponentsProps,
+    IItemsProps
+} from 'store/modules/home'
 
-export interface IItemsProps extends IProductCarouselProps {
-    campanha: string
-    imagemMobileUrl: string
-    imagemUrl: string
-    ordem: number
-    redirecionarUrl: string
-    titulo: string
-}
-
-export interface IComponentsProps {
-    bannerImagemUrl: string
-    bannerLinkUrl: string
-    campanha: string
-    componenteVitrineId: number
-    exibirTitulo: boolean
-    itens: IItemsProps[]
-    ordem: number
-    quantidadePreCarregada: number
-    template: string
-    tipo: string
-    titulo: string
-}
-
-export interface IBannerFullProps {
-    abrirNovaJanela: boolean
-    backgroundColor: string
-    campanha: string
-    duracao: number
-    id: number
-    imagemMobileUrl: string
-    imagemUrl: string
-    ordem: number
-    redirecionarUrl: string
-    titulo: string
-    videoUrl: string
-}
+import { products } from './mockedProduct'
 
 export interface IShowcaseProps {
     banners: IBannerFullProps[]

@@ -3,10 +3,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
+import { IProductCarouselProps } from 'store/modules/product'
+
 import Grid from '../../Grid'
 import ProductItem from '../../ProductItem'
-
-import { IProductCarouselProps } from 'mocks/mockedProduct' // TODO REMOVER MOCK
 
 import * as S from './styles'
 

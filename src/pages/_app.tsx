@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { AppProps } from 'next/app'
 
 import AppProvider from 'hooks'
+import { storeWrapper } from 'store'
 
 import { config } from '../mocks' // TODO REMOVER MOCK
 
@@ -63,4 +64,4 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     )
 }
 
-export default MyApp
+export default storeWrapper.withRedux(MyApp)

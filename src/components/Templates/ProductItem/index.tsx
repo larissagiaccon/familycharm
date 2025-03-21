@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { TbListDetails } from 'react-icons/tb'
 import { TiHeart, TiHeartOutline } from 'react-icons/ti'
 
+import { IProductCarouselProps } from 'store/modules/product'
+
 import Modal from 'components/common/Modal'
 
 import Product from '../Product'
 import ProductImage from './ProductImage'
-
-import { IProductCarouselProps } from 'mocks/mockedProduct' // TODO REMOVER MOCK
 
 import * as S from './styles'
 

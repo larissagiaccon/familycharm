@@ -1,3 +1,9 @@
+import { END } from 'redux-saga'
+import { GetServerSideProps } from 'next'
+import { loadHomeData } from 'store/modules/home'
+
+import { SagaStore, storeWrapper } from 'store'
+
 import Layout from 'components/Layout'
 import ShowcaseGrid from 'components/pages/Showcase/ShowcaseGrid'
 import BannersFull from 'components/Templates/Carousel/BannersFull'
@@ -50,3 +56,20 @@ export default function Home() {
         </Layout>
     )
 }
+
+export const getServerSideProps: GetServerSideProps =
+    storeWrapper.getServerSideProps(async ({ query, store, res }) => {
+        res.setHeader(
+            'Cache-Control',
+            'public, s-maxage=10, stale-while-revalidate=59'
+        )
+
+        store.dispatch(loadHomeData())
+        store.dispatch(END)
+
+        await (store as SagaStore).sagaTask.toPromise()
+
+        return {
+            props: {}
+        }
+    })

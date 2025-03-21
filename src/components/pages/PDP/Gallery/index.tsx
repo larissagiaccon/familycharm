@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
 
-import { IImageProps } from 'mocks/mockedProduct' // TODO REMOVER MOCK
+import { IImageProps } from 'store/modules/product'
 
 import * as S from './styles'
 

@@ -1,7 +1,11 @@
-export const config = {
+import { IConfigApplicationProps } from 'store/modules/config'
+
+export const config: IConfigApplicationProps = {
     aparencia: {
         logo: 'https://static.vecteezy.com/ti/vetor-gratis/p1/8976210-design-de-logotipo-de-loja-de-roupas-com-ilustracaoial-de-cabide-vetor.jpg',
-        icone: 'https://static.vecteezy.com/ti/vetor-gratis/p1/8976210-design-de-logotipo-de-loja-de-roupas-com-ilustracaoial-de-cabide-vetor.jpg'
+        icone: 'https://static.vecteezy.com/ti/vetor-gratis/p1/8976210-design-de-logotipo-de-loja-de-roupas-com-ilustracaoial-de-cabide-vetor.jpg',
+        openGraph:
+            'https://static.vecteezy.com/ti/vetor-gratis/p1/8976210-design-de-logotipo-de-loja-de-roupas-com-ilustracaoial-de-cabide-vetor.jpg'
     },
     loja: {
         nome: 'Encanto em Família',
@@ -29,7 +33,7 @@ export const config = {
     redesSociais: {
         facebook: null,
         twitter: null,
-        instagram: 'https://www.instagram.com/ultrafarmaoficial',
+        instagram: 'https://www.instagram.com/flordodeserto',
         youtube: null,
         linkedin: null,
         whatsapp: null

@@ -7,16 +7,16 @@ import { FaPix, FaCreditCard } from 'react-icons/fa6'
 import { TiHeart, TiHeartOutline } from 'react-icons/ti'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
-import Button from 'components/common/Button'
-import { Gallery } from 'components/pages/PDP/Gallery'
-
 import {
     IImageProps,
     IProductProps,
     IVariationItemProps,
     IProductCarouselProps,
     IVariationsSizesAvailableProps
-} from 'mocks/mockedProduct' // TODO REMOVER MOCK
+} from 'store/modules/product'
+
+import Button from 'components/common/Button'
+import { Gallery } from 'components/pages/PDP/Gallery'
 
 import * as S from './styles'
 

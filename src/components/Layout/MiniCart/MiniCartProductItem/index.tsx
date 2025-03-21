@@ -4,16 +4,16 @@ import Link from 'next/link'
 import { FiEdit, FiTrash } from 'react-icons/fi'
 
 import { useNotices } from 'hooks'
+import {
+    IVariationItemProps,
+    IVariationsSizesAvailableProps
+} from 'store/modules/product'
 
 import Modal from 'components/common/Modal'
 import Button from 'components/common/Button'
 import ItemCounter from 'components/common/ItemCounter'
 
-import {
-    IVariationItemProps,
-    IVariationsSizesAvailableProps,
-    variationsColors
-} from 'mocks/mockedProduct' // TODO REMOVER MOCK
+import { variationsColors } from 'mocks/mockedProduct' // TODO REMOVER MOCK
 
 import * as S from './styles'
 
