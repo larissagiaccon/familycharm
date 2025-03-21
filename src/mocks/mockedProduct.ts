@@ -305,6 +305,38 @@ export const product: IProductProps = {
             pequena:
                 'https://www.thaisrodrigues.com.br/cdn/shop/files/200_2_0060_001_2.jpg?v=1741210473&width=823',
             principal: true
+        },
+        {
+            grande: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21912/5851-verde-lima-1.jpg?ims=630x1008',
+            media: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21912/5851-verde-lima-1.jpg?ims=630x1008',
+            mini: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21912/5851-verde-lima-1.jpg?ims=630x1008',
+            pequena:
+                'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21912/5851-verde-lima-1.jpg?ims=630x1008',
+            principal: true
+        },
+        {
+            grande: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21910/5851-verde-lima-3.jpg?ims=630x1008',
+            media: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21910/5851-verde-lima-3.jpg?ims=630x1008',
+            mini: 'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21910/5851-verde-lima-3.jpg?ims=630x1008',
+            pequena:
+                'https://tatamartello.cdn.magazord.com.br/img/2025/02/produto/21910/5851-verde-lima-3.jpg?ims=630x1008',
+            principal: true
+        },
+        {
+            grande: 'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+            media: 'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+            mini: 'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+            pequena:
+                'https://tatamartello.cdn.magazord.com.br/img/2025/01/produto/21090/5746-2.jpg?ims=630x1008',
+            principal: true
+        },
+        {
+            grande: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+            media: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+            mini: 'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+            pequena:
+                'https://static.riachuelo.com.br/RCHLO/15631591002/portrait/a5b62f743dd0ac7d9723323a0ae27bc722ef02fc.jpg?imwidth=276',
+            principal: true
         }
     ],
     lojasDisponiveis: [],
@@ -415,7 +447,7 @@ export const product: IProductProps = {
                     principal: true
                 }
             ],
-            nome: '',
+            nome: 'Saia Katrina Azul',
             permalink: 'vestido/bege123',
             precoDe: 11.28,
             precoDeTexto: 'R$ 11,28',
@@ -430,7 +462,8 @@ export const product: IProductProps = {
                 'https://global-videos.zordcdn.com.br/tatamartello/img/2025/03/produto/22881/5831-vestido-2.mp4'
         }
     ],
-    videoUrl: ''
+    videoUrl:
+        'https://global-videos.zordcdn.com.br/tatamartello/img/2025/02/produto/22150/5851-shorts-saia-verde.mp4'
 }
 
 export const products: IProductCarouselProps[] = [

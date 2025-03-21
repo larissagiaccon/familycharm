@@ -5,6 +5,7 @@ export const Container = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     height: max-content;
+    position: relative;
 
     .featured-product-image {
         flex: 1;
@@ -254,5 +255,10 @@ export const Container = styled.div`
     @media (max-width: 1000px) {
         display: flex;
         flex-direction: column;
+
+        .swiper .swiper-button-prev,
+        .swiper .swiper-button-next {
+            opacity: 1;
+        }
     }
 `

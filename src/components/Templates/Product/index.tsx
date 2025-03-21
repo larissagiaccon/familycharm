@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FaPix, FaCreditCard } from 'react-icons/fa6'
 import { TiHeart, TiHeartOutline } from 'react-icons/ti'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 import Button from 'components/common/Button'
+import { Gallery } from 'components/pages/PDP/Gallery'
 
 import {
     IImageProps,
@@ -24,6 +26,7 @@ interface IProductItemProps {
 
 export default function Product({ product }: IProductItemProps) {
     const swiperRef = useRef(null)
+    const { pathname } = useRouter()
 
     const [sizeSelected, setSizeSelected] =
         useState<IVariationsSizesAvailableProps>()
@@ -32,6 +35,7 @@ export default function Product({ product }: IProductItemProps) {
     const [featuredProductImages, setFeaturedProductImages] = useState<
         IImageProps[]
     >(featuredProduct.imagens)
+    const [showProductVideo, setShowProductVideo] = useState(false)
 
     useEffect(() => {
         const availableVariation = product.variacoes.find(
@@ -54,8 +58,15 @@ export default function Product({ product }: IProductItemProps) {
 
     return (
         <S.Container className="product">
+            <Gallery
+                images={featuredProductImages}
+                videoUrl={featuredProduct.videoUrl}
+                setShowProductVideo={setShowProductVideo}
+            />
+
             <Swiper
                 ref={swiperRef}
+                spaceBetween={0.1}
                 modules={[Navigation, Pagination, Autoplay]}
                 slidesPerView={1}
                 loop={featuredProductImages.length > 1}
@@ -64,35 +75,55 @@ export default function Product({ product }: IProductItemProps) {
             >
                 {featuredProductImages.map((item, index) => (
                     <>
-                        {index !== 1 ? (
+                        {index !== 1 && !showProductVideo ? (
                             <SwiperSlide
                                 key={index}
                                 className="product-image-item"
                             >
-                                <Link href={featuredProduct.permalink} passHref>
-                                    <a href="">
-                                        <img
-                                            src={item.grande}
-                                            alt={product.nome}
-                                            className="featured-product-image"
-                                        />
-                                    </a>
-                                </Link>
+                                {pathname !== '/[slug]' ? (
+                                    <Link
+                                        href={featuredProduct.permalink}
+                                        passHref
+                                    >
+                                        <a href="">
+                                            <img
+                                                src={item.grande}
+                                                alt={product.nome}
+                                                id="product-image"
+                                                className="product-image"
+                                            />
+                                        </a>
+                                    </Link>
+                                ) : (
+                                    <img
+                                        src={item.grande}
+                                        alt={product.nome}
+                                        id="product-image"
+                                        className="product-image"
+                                    />
+                                )}
                             </SwiperSlide>
                         ) : (
                             <>
-                                {featuredProduct.videoUrl !== null &&
-                                    featuredProduct.videoUrl !== '' && (
-                                        <SwiperSlide
-                                            key={index}
-                                            className="product-image-video"
-                                        >
+                                {((featuredProduct.videoUrl !== null &&
+                                    featuredProduct.videoUrl !== '') ||
+                                    showProductVideo) && (
+                                    <SwiperSlide
+                                        key={index}
+                                        className="product-video"
+                                    >
+                                        {pathname !== '/[slug]' ? (
                                             <Link
                                                 href={featuredProduct.permalink}
                                                 passHref
                                             >
                                                 <a href="">
-                                                    <video autoPlay loop muted>
+                                                    <video
+                                                        autoPlay
+                                                        loop
+                                                        muted
+                                                        id="product-video"
+                                                    >
                                                         <source
                                                             src={
                                                                 featuredProduct.videoUrl
@@ -104,8 +135,25 @@ export default function Product({ product }: IProductItemProps) {
                                                     </video>
                                                 </a>
                                             </Link>
-                                        </SwiperSlide>
-                                    )}
+                                        ) : (
+                                            <video
+                                                autoPlay
+                                                loop
+                                                muted
+                                                id="product-video"
+                                            >
+                                                <source
+                                                    src={
+                                                        featuredProduct.videoUrl
+                                                    }
+                                                    type="video/mp4"
+                                                />
+                                                Seu navegador não suporta a tag
+                                                de vídeo.
+                                            </video>
+                                        )}
+                                    </SwiperSlide>
+                                )}
                             </>
                         )}
                     </>
