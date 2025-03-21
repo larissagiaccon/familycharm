@@ -38,7 +38,6 @@ export interface IComponentsProps {
     bannerImagemUrl: string
     bannerLinkUrl: string
     campanha: string
-    componenteVitrineId: number
     exibirTitulo: boolean
     itens: IItemsProps[]
     ordem: number

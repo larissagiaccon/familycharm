@@ -105,15 +105,13 @@ function* loadOthersProductsCartRequest() {
 
 function* addProductToCartRequest({ payload }: IAddProductToCartRequest) {
     try {
-        const { sku, quantity, showAfterRequest, GA, componenteVitrineId } =
-            payload
+        const { sku, quantity, showAfterRequest, GA } = payload
 
         const campanha = Cookies.get('@FlordoDeserto:campanha')
 
         const response = yield call(api.post, 'carrinho/adicionar', {
             sku,
             quantidade: quantity,
-            componenteVitrineId,
             promocaoIdGA4: campanha ? JSON.parse(campanha).promotionId : null
         })
 

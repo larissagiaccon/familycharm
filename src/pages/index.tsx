@@ -24,12 +24,9 @@ export default function Home() {
                 )}
 
                 {components &&
-                    components.map(component => {
+                    components.map((component, index) => {
                         return (
-                            <div
-                                key={component.componenteVitrineId}
-                                className="components-group"
-                            >
+                            <div key={index} className="components-group">
                                 {component.exibirTitulo && (
                                     <h3 className="section-title">
                                         {component.titulo}

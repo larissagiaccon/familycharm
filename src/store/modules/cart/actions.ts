@@ -45,15 +45,13 @@ export interface IAddProductToCart {
     quantity: number
     showAfterRequest: boolean
     GA?: object
-    componenteVitrineId?: number
 }
 
 export function addProductToCart({
     sku,
     quantity,
     showAfterRequest,
-    GA,
-    componenteVitrineId
+    GA
 }: IAddProductToCart) {
     return {
         type: ActionTypes.addProductToCart,
@@ -61,8 +59,7 @@ export function addProductToCart({
             sku,
             quantity,
             showAfterRequest,
-            GA,
-            componenteVitrineId
+            GA
         }
     }
 }

@@ -91,7 +91,6 @@ export const showcase: IShowcaseProps = {
             bannerImagemUrl: '',
             bannerLinkUrl: '',
             campanha: '',
-            componenteVitrineId: 7255,
             exibirTitulo: true,
             itens: productsShowcase.concat(
                 productsShowcase.concat(productsShowcase)
@@ -106,7 +105,6 @@ export const showcase: IShowcaseProps = {
             bannerImagemUrl: '',
             bannerLinkUrl: '',
             campanha: '',
-            componenteVitrineId: 7255,
             exibirTitulo: true,
             itens: productsShowcase.concat(productsShowcase),
             ordem: 1,
