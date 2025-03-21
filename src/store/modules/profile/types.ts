@@ -201,40 +201,41 @@ export interface IRequestItemProps {
 }
 
 export interface IUserDataProps {
-    id: number
+    assinanteNewsletter: boolean
     ativo: boolean
     codigo: string
-    tipo: string
-    nomeCompleto: string
-    email: string
-    documento: string
+    criadoEm: Date
     dataNascimento: Date
+    dataNascimentoFormatado: string
+    documento: string
+    email: string
     genero: string
+    id: number
+    inscricaoEstadual: string
+    nomeCompleto: string
     nomeFantasia: string
     razaoSocial: string
-    inscricaoEstadual: string
-    autorizaCatalogo: boolean
-    autorizaNewsletter: boolean
+    tipo: string
     endereco: {
-        nomeCompleto: string
-        descricao: string
-        logradouro: string
-        complemento: string
-        numero: string
         bairro: string
-        referencia: string
         cidade: string
-        uf: string
-        ibge: string
-        telefone1: string
-        telefone2: string
         codigoPostal: string
         codigoPostalFormatado: string
+        complemento: string
+        descricao: string
+        ibge: string
         incompleto: boolean
         inconsistente: boolean
+        logradouro: string
+        nomeCompleto: string
+        numero: string
+        referencia: string
+        telefone1: string
+        telefone2: string
+        uf: string
     }
-    criadoEm: Date
-    dataNascimentoFormatado: string
+    situacao: string
+    ultimoLogin: string
 }
 
 export interface IUpdateRegisterProps {

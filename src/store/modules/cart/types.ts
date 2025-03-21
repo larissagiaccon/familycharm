@@ -174,11 +174,9 @@ export interface IProductCartItem {
     descricao: string
     desconto: number
     imagem: string
-    gtin: string
     categoriaId: number
     categoria: string
     categoriaHierarquia: string
-    categoriaGoogle: string
     marcaId: number
     marca: string
     precoTotal: number

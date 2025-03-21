@@ -36,6 +36,8 @@ import {
     IUserDataProps,
     IUserProps
 } from './types'
+import { user } from 'mocks'
+import { userProfile } from 'mocks/mockedLogin'
 
 type IAddNewAddressRequest = ReturnType<typeof addNewAddress>
 type IDeleteAddressRequest = ReturnType<typeof deleteAddress>
@@ -205,10 +207,14 @@ function* updatePasswordRequest({ payload }: IUpdatePasswordRequest) {
 
 function* loadUserDataRequest() {
     try {
-        const response: AxiosResponse<IUserDataProps> = yield call(
-            api.get,
-            '/cliente/'
-        )
+        // const response: AxiosResponse<IUserDataProps> = yield call(
+        //     api.get,
+        //     '/cliente/'
+        // )
+
+        const response = {
+            data: userProfile
+        }
 
         yield put(updateUserData(response.data))
     } catch (err) {}
@@ -287,14 +293,20 @@ function* removeFavoriteRequest({ payload }: IRemoveFavoriteRequest) {
 function* signInRequest({ payload }: ISignInRequest) {
     try {
         const { login, password } = payload
-        const response: AxiosResponse<IUserProps> = yield call(
-            api.post,
-            'login',
-            {
-                login,
-                senha: password
-            }
-        )
+        // const response: AxiosResponse<IUserProps> = yield call(
+        //     api.post,
+        //     'login',
+        //     {
+        //         login,
+        //         senha: password
+        //     }
+        // )
+
+        const response = {
+            data: user
+        }
+
+        console.log(response)
 
         const splitName = response.data.nomeCompleto.split(' ')
         const concatName = splitName[0] + ' ' + splitName[splitName.length - 1]

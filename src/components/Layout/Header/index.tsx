@@ -10,8 +10,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { IState } from 'store'
 import { useMiniCart } from 'hooks'
 import { ICartProps } from 'store/modules/cart'
-import { IUserProps, signOut } from 'store/modules/profile'
+import { objectIsEmpty } from 'utils/objectEmpty'
 import { IConfigProps } from 'store/modules/config'
+import { IUserProps, signOut } from 'store/modules/profile'
 
 import MiniCart from '../MiniCart'
 import HeaderMobile from './HeaderMobile'
@@ -165,8 +166,8 @@ export default function Header() {
 
                         <div className="user-info">
                             <FiUser />
-                            {user ? (
-                                <>
+                            {!objectIsEmpty(user) ? (
+                                <div className="my-account-or-sign-out">
                                     <Link
                                         href="/central-do-cliente/minha-conta"
                                         passHref
@@ -176,10 +177,13 @@ export default function Header() {
                                             <strong>Minha conta</strong>
                                         </a>
                                     </Link>
-                                    <strong onClick={handleSignOut}>
-                                        Sair
+                                    <strong
+                                        title="Sair"
+                                        onClick={handleSignOut}
+                                    >
+                                        | Sair
                                     </strong>
-                                </>
+                                </div>
                             ) : (
                                 <Link href="/identificacao" passHref>
                                     <a href="">
@@ -191,7 +195,9 @@ export default function Header() {
                         </div>
 
                         <div
-                            className="cart-itens"
+                            className={`cart-itens${
+                                cart.itens?.length > 0 ? ' have-items' : ''
+                            }`}
                             onClick={() => {
                                 if (!router.asPath.includes('/checkout'))
                                     dropMiniCart()

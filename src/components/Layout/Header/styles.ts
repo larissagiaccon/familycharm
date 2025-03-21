@@ -108,10 +108,19 @@ export const Container = styled.div`
         }
     }
 
+    .my-account-or-sign-out {
+        display: flex;
+        align-items: flex-end;
+
+        a {
+            padding-right: 0.2rem;
+        }
+    }
+
     .cart-itens {
         position: relative;
 
-        p {
+        &.have-items p {
             display: flex;
             align-items: center;
             justify-content: center;
